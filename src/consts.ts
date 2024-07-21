@@ -46,7 +46,7 @@ export const PAGES: Page[] = [
 // i18n
 export const DEFAULT_LOCALE = "en";
 export const LOCALES = {
-	english: "en", // the `defaultLocale` value must present in `locales` keys
-	korean: "kr",
-	italian: "it",
+	en: "en", // the `defaultLocale` value must present in `locales` keys
+	kr: "kr",
+	it: "it",
 };
