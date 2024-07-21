@@ -30,6 +30,8 @@
 		"@astrojs/sitemap": "^3.1.6",
 		"@astrojs/tailwind": "^5.1.0",
 		"@fontsource-variable/inter": "^5.0.18",
+		"@fortawesome/fontawesome-svg-core": "^6.6.0",
+		"@fortawesome/free-solid-svg-icons": "^6.6.0",
 		"@iconify-json/mdi": "^1.1.67",
 		"@iconify/utils": "^2.1.25",
 		"@tabler/icons": "^3.11.0",

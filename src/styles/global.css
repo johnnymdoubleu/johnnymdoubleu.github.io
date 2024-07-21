@@ -20,9 +20,28 @@ body {
 }
 
 a.home {
-	@apply text-red-700
+	@apply text-primary-1000;
 }
 
 a.home:hover{
-	@apply underline
+	@apply underline;
 }
+
+a.footerIcon {
+	@apply text-gray-500;
+}
+
+a.footerIcon:hover{
+	@apply text-primary-1000;
+}
+
+blockquote {
+	padding: 0.5em 0 0.5em 2em;
+	@apply italic border-solid border-l-4 border-slate-600 mb-8;
+}
+	blockquote p{
+		@apply font-extralight;
+	}
+	blockquote h4 {
+		@apply text-lg font-bold;
+	}
