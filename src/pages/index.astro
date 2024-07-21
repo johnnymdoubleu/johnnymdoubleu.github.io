@@ -17,7 +17,7 @@ const t = translations(Astro.url);
 			<img class="hidden lg:block rounded-md" src="../src/assets/images/front/edin-frontpage.jpg">
 		</div>
 	</Container>
-	<Container class="pt-10 lg:grid grid-cols-2 gap-7">
+	<Container class="pt-10 lg:pt-1 lg:grid grid-cols-2 gap-7">
 		<div class="pb-5 lg:justify-items-center">
 			<span set:html={t.interest}/>
 		</div>
@@ -25,8 +25,8 @@ const t = translations(Astro.url);
 			<span set:html={t.education}/>
 		</div>
 	</Container>
-	<Container class="pt-5">
-		<blockquote>
+	<Container class="pt-5 lg:pt-1">
+		<blockquote class="saying">
 			<p>I love being under pressure. Even the pressure put on me by the media. That is how you outdo yourself.<br></p>
 			<h4>- Tony Parker &nbsp; [former NBA Champion]</h4>
 		</blockquote>
