@@ -8,10 +8,20 @@ const t = translations(Astro.url);
 ---
 
 <Layout>
-	<Container class="pt-16">
-		<span set:html={t.home_description} />
+	<Container class="pt-16 grid grid-cols-3 gap-4">
+		<div class="col-span-2 mx-auto">
+			<span set:html={t.home_description} />
+		</div>
+		<div class="col-span-1 mx-auto">
+			<img src="../src/assets/images/front/edin-frontpage.jpg">
+		</div>
 	</Container>
-	<Container class="pt-10">
-		<span set:html={t.interest} />
+	<Container class="pt-10 grid grid-cols-2 gap-7 justify-items-center">
+		<div>
+			<span set:html={t.interest} />
+		</div>
+		<div>
+			<span set:html={t.education}/>
+		</div>
 	</Container>
 </Layout>
