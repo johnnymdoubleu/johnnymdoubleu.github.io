@@ -8,7 +8,7 @@ const { class: className, ...props }: ContainerProps = Astro.props;
 ---
 
 <div {...props} class:list={["mx-auto max-w-8xl px-4 sm:px-6 lg:px-8"]}>
-	<div class:list={[className, "mx-auto max-w-3xl"]}>
+	<div class:list={[className, "mx-auto max-w-4xl"]}>
 		<slot />
 	</div>
 </div>
