@@ -8,12 +8,12 @@ const t = translations(Astro.url);
 ---
 
 <Layout>
-	<Container class="pt-16 content flex lg:grid grid-cols-3 gap-4">
+	<Container class="pt-16 lg:grid grid-cols-3 gap-4">
 		<div class="lg:col-span-2">
+			<img class="float-right w-5/12 m-3 lg:hidden" src="../src/assets/images/front/edin-frontpage.jpg">
 			<span set:html={t.home_description} />
 		</div>
-		<img class="w-3/12 lg:hidden" src="../src/assets/images/front/edin-frontpage.jpg">
-		<div class="content flex lg:col-span-1">
+		<div class="lg:col-span-1">
 			<img class="hidden lg:block" src="../src/assets/images/front/edin-frontpage.jpg">
 		</div>
 	</Container>
