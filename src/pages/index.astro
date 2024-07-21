@@ -18,22 +18,17 @@ const t = translations(Astro.url);
 		</div>
 	</Container>
 	<Container class="pt-10 lg:grid grid-cols-2 gap-7">
-		<div class="lg:justify-items-center">
+		<div class="pb-5 lg:justify-items-center">
 			<span set:html={t.interest}/>
 		</div>
 		<div class="lg:justify-items-center">
 			<span set:html={t.education}/>
-			<ul class="list-none list-inside pt-3">
-				<li>
-					<p><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 1920 1792" astro-icon="social/institute"><path fill="currentColor" d="m960 0l960 384v128h-128q0 26-20.5 45t-48.5 19H197q-28 0-48.5-19T128 512H0V384zM256 640h256v768h128V640h256v768h128V640h256v768h128V640h256v768h59q28 0 48.5 19t20.5 45v64H128v-64q0-26 20.5-45t48.5-19h59zm1595 960q28 0 48.5 19t20.5 45v128H0v-128q0-26 20.5-45t48.5-19z"/></svg> PhD in Statistics, <br />University of Edinburgh, UK</p>
-				</li>
-			</ul>
 		</div>
 	</Container>
 	<Container class="pt-5">
 		<blockquote>
 			<p>I love being under pressure. Even the pressure put on me by the media. That is how you outdo yourself.<br></p>
-			<h4>- Tony Parker &nbsp; [former NBA Player]</h4>
+			<h4>- Tony Parker &nbsp; [former NBA Champion]</h4>
 		</blockquote>
 	</Container>
 </Layout>

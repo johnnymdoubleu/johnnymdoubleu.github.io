@@ -35,13 +35,50 @@ a.footerIcon:hover{
 	@apply text-primary-1000;
 }
 
-blockquote {
+blockquote.saying {
 	padding: 0.5em 0 0.5em 2em;
 	@apply italic border-solid border-l-4 border-slate-600 mb-8;
 }
-	blockquote p{
+	blockquote.saying p{
 		@apply font-extralight;
 	}
-	blockquote h4 {
+	blockquote.saying h4 {
 		@apply text-lg font-bold;
+	}
+
+ul.education {
+	@apply list-none pt-3
+}
+	ul.education p{
+		@apply inline-flex mt-1
+	}
+
+	ul.education li{
+		@apply mt-1 border-solid border-t-2 border-t-slate-200 w-10/12
+	}
+
+	ul.education li:first-child{
+		@apply mt-1 border-t-0
+	}
+
+ul.eninterest {
+	@apply list-none pt-3 w-1/2 lg:w-5/12
+}
+	ul.eninterest li{
+		@apply mt-1 border-solid border-t-2 border-t-slate-200
+	}
+
+	ul.eninterest li:first-child{
+		@apply mt-1 border-solid border-t-0
+	}
+
+ul.krinterest {
+	@apply list-none pt-3 w-1/2 lg:w-5/12
+}
+	ul.krinterest li{
+		@apply mt-1 border-solid border-t-2 border-t-slate-200
+	}
+
+	ul.krinterest li:first-child{
+		@apply mt-1 border-solid border-t-0
 	}
