@@ -71,7 +71,22 @@ const t = tFn(Astro.url);
 						<div @click.away="open = false" class="relative" x-data="{ open: false }">
 							<button @click="open = !open" style="link"  class="mt-[2px]">
                 {item.title}
-								<svg
+								<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"
+									:class="{'rotate-180': open, 'rotate-0': !open}"
+									class="inline w-4 h-4 mb-[2px] transition-transform duration-200 transform">
+									<g fill="none" stroke="currentColor" stroke-dasharray="24" stroke-dashoffset="24" stroke-linecap="round" stroke-width="2">
+										<path d="M5 5H19">
+											<animate fill="freeze" attributeName="stroke-dashoffset" dur="0.2s" values="24;0"/>
+										</path>
+										<path d="M5 12H19">
+											<animate fill="freeze" attributeName="stroke-dashoffset" begin="0.2s" dur="0.2s" values="24;0"/>
+										</path>
+										<path d="M5 19H19">
+											<animate fill="freeze" attributeName="stroke-dashoffset" begin="0.4s" dur="0.2s" values="24;0"/>
+										</path>
+									</g>
+								</svg>								
+								{/* <svg
 									fill="currentColor"
 									viewBox="0 0 20 20"
 									:class="{'rotate-180': open, 'rotate-0': !open}"
@@ -81,7 +96,7 @@ const t = tFn(Astro.url);
 										d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
 										clip-rule="evenodd">
 									</path>
-								</svg>
+								</svg> */}
 							</button>
 							<div
 								x-show="open"
