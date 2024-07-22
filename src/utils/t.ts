@@ -15,6 +15,7 @@ const handler = {
 	},
 };
 
+
 const kr_proxy = new Proxy(kr, handler);
 const it_proxy = new Proxy(it, handler);
 const en_proxy = new Proxy(en, handler);
