@@ -83,3 +83,15 @@ ul.krinterest {
 	ul.krinterest li:first-child{
 		@apply mt-1 border-solid border-t-0
 	}
+
+
+ol.teaching{
+	@apply list-decimal list-inside;
+}
+	ol.teaching h6{
+		@apply font-light underline;
+	}
+
+h5.teaching{
+	@apply font-bold pt-2 pb-4;
+}

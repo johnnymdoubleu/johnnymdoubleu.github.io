@@ -7,30 +7,8 @@ const t = translations(Astro.url);
 ---
 
 <Layout title="About Me" description="Lorem ipsum dolor sit amet">
-	<Container class="pt-16">
-		<!-- <p set:html={t.about_description} /> -->
-		<h5>2023/2024</h5>
-		<ol>
-			<h6><u>MSc Consultancy Project Supervision</u></h6>
-			<li>Model and feature manipulation to predict specific anomalies - Lloyd's Banking Group</li>
-			<li>Understanding the effect of manufacture process variation on polymer properties - AkzoNobel</li>
-		<br>
-			<h6>Postgraduate Courses</h6>
-			<li>Bayesian Data Analysis (MATH11175) - Tutor</li>
-			<li>Bayesian Theory (MATH11177) - Tutor</li>
-			<li>Statistical Research Skills (MATH11188)  - Tutor</li>
-			<li>Incomplete Data Analysis (MATH11185) - Tutor</li>
-			<li>Generalised Regression Model (MATH11187) - Tutor</li>
-		<br>
-			<h6>Undergraduate Courses</h6>
-			<li>Introduction to Data Science (MATH08077) - Tutor</li>
-			<li>Statistical Computing (MATH10093) - Tutor</li>
-		</ol>
-		<h5>2022/2023</h5>
-		<ol>
-			<h6>Postgraduate Course</h6>
-			<li>Biomedical Data Science (MATH11174) - Super Tutor (Course Instructor)</li>
-		</ol>
+	<Container class="pt-16" set:html={t.teaching_description}>
+		<!-- <div set:html={t.about_description}></div> -->
 	</Container>
 </Layout>
 

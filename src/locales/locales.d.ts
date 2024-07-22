@@ -3,6 +3,7 @@ declare interface Locales {
 	education: string;
 	home_description: string;
 	about_description: string;
+	teaching_description: string;
 	home: string;
 	about: string;
 	publication: string;
