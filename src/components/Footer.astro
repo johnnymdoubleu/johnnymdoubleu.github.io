@@ -12,7 +12,7 @@ const { buildDate } = Astro.props;
 ---
 
 <footer transition:persist class="bg-gradient-to-br p-4 pb-16 lg:pt-4 text-center text-gray-500">
-	Reorganised by &copy; MW {today.getFullYear()} | Template based on <a class="hover:underline" href="https://github.com/zankhq">zank.studio</a> <br> Last Edited: <FormattedDate date={buildDate} includeTime={false}/>
+	<p>&copy; MW {today.getFullYear()} | Template based on <a class="hover:underline" href="https://github.com/zankhq">zank.studio</a></p> Last Edited: <FormattedDate date={buildDate} includeTime={false}/>
 
 	<div class="mt-4 flex justify-center space-x-4">
 		<a href="mailto: johnny.myungwon.lee@ed.ac.uk" target="_blank" class="footerIcon">
