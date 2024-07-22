@@ -1,6 +1,7 @@
 local_backend: true
 
-logo_url: /logo.svg
+# logo_url: /logo.svg
+logo_url: /favicon.ico
 
 backend:
     name: github
@@ -19,6 +20,7 @@ i18n:
     locales:
         - "en"
         - "it"
+        - "kr"
     default_locale: "en"
 
 collections:
