@@ -13,10 +13,9 @@ const { date, includeTime } = Astro.props;
 
 <time datetime={date.toISOString()}>
 	{
-		date.toLocaleDateString(locale, {
+		date.toLocaleDateString('en-GB', {
 			year: "numeric",
-			month: "long",
-			day: "numeric",
+			month: "short",
 			hour: includeTime ? "numeric" : undefined,
 			minute: includeTime ? "numeric" : undefined,
 		})
