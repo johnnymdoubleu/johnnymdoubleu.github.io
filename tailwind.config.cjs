@@ -6,7 +6,7 @@ module.exports = {
 		extend: {
 			fontFamily: {
 				/** Change here the font family */
-				sans: ["Inter Variable", "Inter", ...defaultTheme.fontFamily.sans],
+				sans: ["Raleway", ...defaultTheme.fontFamily.sans],
 			},
 			colors: {
 				/** Override here your primary colors */
