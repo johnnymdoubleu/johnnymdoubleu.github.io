@@ -1,0 +1,50 @@
+---
+import translations from "@utils/t.ts";
+import Layout from "@layouts/Layout.astro";
+import Container from "@src/components/Container.astro";
+
+const t = translations(Astro.url);
+---
+
+<Layout title="About Me" description="Lorem ipsum dolor sit amet">
+	<Container class="pt-16">
+		<!-- <p set:html={t.about_description} /> -->
+		<ul class="alt">
+			<li><span>World Meeting 2024 @ International Soceity for Bayesian Analysis (ISBA); Venice, Italy</span> - A Bayesian Lasso for Tail Index Regression. (Poster,
+				<a class="home" href="https://docs.google.com/document/d/13zMesBSdZYMJpXf9qkW0_VC33LynmdpCwRBVCNnbG20/edit" target="_blank" rel="noopener" class="summary-link">
+					link</a>)
+				</li>			
+			<li><span>Annual Conference 2024@ Centre for Statistics; Edinburgh, UK</span> - A Bayesian Lasso for Tail Index Regression. (Poster,
+				<a class="home" href="https://centreforstatistics.maths.ed.ac.uk/sites/default/files/atoms/files/ecr_day_2024_booklet.pdf" target="_blank" rel="noopener" class="summary-link">
+					link</a>)
+				</li>			
+			<li><span>Early Career Researchers Day (ECR Day) 2024 @ Centre for Statistics; Edinburgh, UK</span> - A Bayesian Lasso for Tail Index Regression. (Poster,
+			<a class="home" href="https://centreforstatistics.maths.ed.ac.uk/sites/default/files/atoms/files/ecr_day_2024_booklet.pdf" target="_blank" rel="noopener" class="summary-link">
+				link</a>)
+			</li>
+			<li><span>Postgraduate Colloqium @ The University of Edinburgh; Edinburgh, UK</span> - Calming the Furious Inferno: Bayesian Regularisation with Smoothing for Tail Index Regression. (Talk,
+			<a class="home" href="https://blogs.ed.ac.uk/pgrmath/pg-colloquium/#johnnylee" target="_blank" rel="noopener" class="summary-link">
+				link</a>)
+			</li>
+			<li><span>Student Conference 2024 @ The Maxwell Institute for Mathematical Sciences (MIGS); Edinburgh, UK</span> - Bayesian Regularisation with Smoothing for Tail Index Regression. (Talk,
+			<a class="home" href="Papers\brstir\student_conference_11_and_12_jan_2024.pdf" target="_blank" rel="noopener" class="summary-link">
+				link</a>)
+			</li>
+			<li><span>Bayesian Young Statistican Meeting (BAYSM) 2023 @ junior-International Soceity for Bayesian Analysis (j-ISBA); Online</span> - Bayesian Regularisation with Smoothing for Tail Index Regression. (Talk,
+			<a class="home" href="https://events.stat.uconn.edu/BAYSM2023/" target="_blank" rel="noopener" class="summary-link">
+				link</a>)
+			</li>
+			<li><span>37th International Workshop for Statistical Modelling (IWSM) 2023 @ Statistical Modelling Society (SMS); Dortmund, Germany</span> - Bayesian Regularisation for Tail Index Regression. (Poster,
+			<a class="home" href="https://iwsm2023.statistik.tu-dortmund.de/" target="_blank" rel="noopener" class="summary-link">
+				link</a>)
+			</li>
+		</ul>		
+	</Container>
+</Layout>
+
+<style>
+	span{
+		@apply font-bold;
+	}
+
+</style>

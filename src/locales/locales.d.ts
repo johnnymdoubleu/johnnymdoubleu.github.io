@@ -6,7 +6,7 @@ declare interface Locales {
 	home: string;
 	about: string;
 	publication: string;
-	talks: string;
+	conference: string;
 	teaching: string;
 	blog: string;
 }

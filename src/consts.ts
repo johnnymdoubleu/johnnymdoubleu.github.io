@@ -26,8 +26,8 @@ export const PAGES: Page[] = [
 		href: "/publication",
 	},
 	{
-		title: "talks",
-		href: "/talks",
+		title: "conference",
+		href: "/conference",
 	},
 	{
 		title: "teaching",
