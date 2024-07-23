@@ -1,16 +1,16 @@
 {
-	"name": "johnnymdoubleu-github-io",
+	"name": "johnniesmansion",
 	"type": "module",
-	"version": "0.13.4",
-	"author": "Giulio Zanchetta",
-	"description": "Astro starter template with tailwind, alpinejs, localization, blog, CMS, and comments",
+	"version": "1.13.4",
+	"author": "Johnny Myung Won Lee",
+	"description": "Johnny's Personal Website that includes portfolio",
 	"license": "MIT",
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/zankhq/astro-starter.git"
+		"url": "https://github.com/johnnymdoubleu/johnnymdoubleu.github.io.git"
 	},
-	"bugs": "https://github.com/zankhq/astro-starter/issues",
-	"homepage": "https://github.com/zankhq/astro-starter",
+	"bugs": "https://github.com/johnnymdoubleu/johnnymdoubleu.github.io/issues",
+	"homepage": "https://johnnymdoubleu.github.io",
 	"files": [
 		"*"
 	],
