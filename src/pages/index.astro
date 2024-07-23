@@ -10,14 +10,14 @@ const t = translations(Astro.url);
 <Layout>
 	<Container class="pt-16 lg:grid grid-cols-3 gap-4">
 		<div class="lg:col-span-2">
-			<img class="float-right w-5/12 m-3 rounded-md lg:hidden" src="../src/assets/images/front/edin-frontpage.jpg">
+			<img class="float-right w-5/12 m-3 rounded-md md:w-3/12 lg:hidden" src="../src/assets/images/front/edin-frontpage.jpg">
 			<span set:html={t.home_description} />
 		</div>
 		<div class="lg:col-span-1">
 			<img class="hidden lg:block rounded-md" src="../src/assets/images/front/edin-frontpage.jpg" alt="Me at Meadows">
 		</div>
 	</Container>
-	<Container class="pt-10 lg:pt-1 lg:grid grid-cols-2 gap-7">
+	<Container class="pt-10 md:grid md:grid-cols-2 lg:pt-1 lg:grid lg:grid-cols-2 gap-7">
 		<div class="pb-5 lg:justify-items-center">
 			<span set:html={t.interest}/>
 		</div>
