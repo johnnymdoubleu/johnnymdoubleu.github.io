@@ -1,7 +1,8 @@
 ---
 import translations from "@utils/t.ts";
+import { Icon } from "astro-icon/components";
 import Layout from "@layouts/Layout.astro";
-import Container from "@src/components/Container.astro";
+import Container from "@src/components/Container.astro";	
 
 const t = translations(Astro.url);
 ---
@@ -19,41 +20,46 @@ const t = translations(Astro.url);
 				<span>Jordan Richards</span>; <span class="font-bold underline">MyungWon Lee</span>; <span>Viviana Carcaiso</span>; <span>Miguel de Carvalho</span> (2024, to appear) <br> <i>Journal of Royal Statistical Society: Series C</i>
 			</div>
 			
-			<div>
-
-				<ul class="actions small publications">
+			<div x-data="{ expanded: false }" class="pt-3">
+				<ul >
 					<li>
-						<a href="-" target="_blank" class="button fit small">
-							<span class="fa fa-file-pdf">  </span>
-							PDF
+						<a href="-" target="_blank" class="flex justify-center items-center">
+							<Icon name="mdi:file-pdf-box" size={20}/>&nbsp; PDF
 						</a>
 					</li>
-					<li>
-						<button class="button fit small" :click="{toggleBibtex}">
-							<span class="ai ai-google-scholar"></span>
-							Cite
+					<li >			
+						<button class="flex justify-center items-center" @click="expanded = ! expanded">
+							<Icon name="academicons:google-scholar" size={20}/>&nbsp; Cite
 						</button>
-					</li>
-					<li>
-						<a href="-" target="_blank" class="button fit small">
-							<span class="fa fa-code">  </span>
-							Code
-						</a>
-					</li>
-					<li>
-						<a href="#" target="_blank" class="button fit small">
-							<span class="fa fa-file-powerpoint">  </span>
-							Slides
-						</a>
-					</li>
-					<div>
-						<!-- <div id="diss-bibtex" style="display: none;">
-							<pre style="overflow-x: auto;">@article{richards2024, title = {Discussion of \guillemotleft{}{{Inference for extreme spatial temperature events in a changing climate with application to Ireland}}\guillemotright{} by {{Healy}}, {{D}}., {{Tawn}}, {{J}}., Thorne, P. \& {{Parnell}}, {{A}}.}, journal = {Journal of the Royal Statistical Society, Ser. C},author = {Richards, Jordan and Lee, MyungWon and Carcaiso, Viviana and {de Carvalho}, Miguel},year = {2024, to appear}}</pre>
+						<!-- <div id="foo" x-show="expanded" x-collapse>
+							Lorem ipsum
 						</div> -->
-					</div>
+						<!-- <button  x-data="{ open: false }" @click="open = !open">
+							{{ open ? 'Hide' : 'Show' }} 
+						</button> -->
+					</li>
+					<li>
+						<a href="-" target="_blank" class="flex justify-center items-center">
+							<Icon name="mdi:code" size={20}/>&nbsp; Code
+						</a>
+					</li>
+					<li>
+						<a href="-" target="_blank" class="flex justify-center items-center">
+							<Icon name="mdi:microsoft-powerpoint" size={20}/>&nbsp; Slides
+						</a>
+					</li>
 				</ul>
+				<div x-show="expanded" x-collapse>
+					This content will toggle based on the button click!
+				</div>
 			</div>
 		</div>
+		<!-- <div x-data="{ expanded: false }">
+      <button @click="expanded = ! expanded">Toggle</button>
+      <div id="foo" x-show="expanded" x-collapse>
+        Lorem ipsum
+			</div>
+    </div> -->
 	</Container>
 </Layout>
 
@@ -63,15 +69,7 @@ const t = translations(Astro.url);
 	}
 
 	li {
-		@apply mr-auto border border-blue-700 md:inline-block md:mr-3;
+		@apply mr-auto leading-7 border-0 text-sm font-bold px-5 h-9 content-center items-center text-center bg-secondary-1000 text-white md:inline-block md:mr-3 hover:bg-yellow-600 hover:underline;
+		border-radius: 4px;
 	}
 </style>
-
-
-<script>
-	let showBibtex = false;
-
-	function toggleBibtex() {
-		showBibtex = !showBibtex;
-	}
-</script>

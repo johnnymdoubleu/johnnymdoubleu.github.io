@@ -3,7 +3,7 @@ import mdx from "@astrojs/mdx";
 import icon from "astro-icon";
 import sitemap from "@astrojs/sitemap";
 import tailwind from "@astrojs/tailwind";
-import alpinejs from "@astrojs/alpinejs";
+import alpine from "@astrojs/alpinejs";
 import { i18n, filterSitemapByDefaultLocale } from "astro-i18n-aut/integration";
 import { DEFAULT_LOCALE, LOCALES, SITE_URL } from "./src/consts";
 
@@ -26,6 +26,7 @@ export default defineConfig({
 	integrations: [
     icon({
       include: {
+				academicons: ["*"],
 				tabler: ["*"],
         mdi: ["*"], // (Default) Loads entire Material Design Icon set
       },
@@ -43,7 +44,7 @@ export default defineConfig({
 		tailwind({
 			applyBaseStyles: false,
 		}),
-		alpinejs(),
+		alpine(),
 		i18n({
 			locales,
 			defaultLocale,

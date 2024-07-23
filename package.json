@@ -47,6 +47,8 @@
 		"workbox-window": "^7.1.0"
 	},
 	"devDependencies": {
+		"@iconify-json/academicons": "^1.1.14",
+		"@iconify/tailwind": "^1.1.1",
 		"@vite-pwa/assets-generator": "^0.2.4",
 		"astro-icon": "^1.1.0",
 		"astro-seo": "^0.8.4",
