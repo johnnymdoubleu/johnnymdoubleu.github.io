@@ -57,6 +57,16 @@ const t = translations(Astro.url);
 	</Container>
 </Layout>
 
+<style>
+	ul {
+		@apply list-none flex justify-around lg:inline-block;
+	}
+
+	li {
+		@apply mr-auto border border-blue-700 md:inline-block md:mr-3;
+	}
+</style>
+
 
 <script>
 	let showBibtex = false;
