@@ -10,43 +10,43 @@ const t = translations(Astro.url);
 <Layout title="Publication" description="List of my publications">
 	<Container class="pt-16 pb-5">
 		<div id="discussion" class="border-s-fuchsia-400">
-			<div class="text-lg font-bold underline m-1">
+			<div id="title" class="text-lg font-bold underline m-1">
 				<a href="-" target="_blank" rel="noopener">
 					Discussion of «<i>Inference for extreme spatial temperature events in a changing climate with application to Ireland</i>» by Healy, D., Tawn, J., Thorne, P. & Parnell, A. 
 				</a>
 			</div>
 			<div>
-				<span>Jordan Richards</span>; <span class="font-bold underline">MyungWon Lee</span>; <span>Viviana Carcaiso</span>; <span>Miguel de Carvalho</span> (2024, to appear) <br> <i>Journal of Royal Statistical Society: Series C</i>
+				<span>Jordan Richards</span>; <span class="font-bold underline">MyungWon Lee</span>; <span>Viviana Carcaiso</span>; <span>Miguel de Carvalho</span> (2024, to appear) <br> <span id="journal" class="italic">Journal of Royal Statistical Society: Series C</span>
 			</div>
 			
 			<div x-data="{ open: false }" class="pt-3">
 				<ul >
 					<li>
-						<a href="-" target="_blank" class="flex justify-center items-center">
+						<a href="#" target="_blank" class="flex justify-center items-center">
 							<Icon name="mdi:file-pdf-box" size={20}/>&nbsp; <span>PDF</span>
 						</a>
 					</li>
 					<li >			
 						<button class="flex justify-center items-center" x-on:click="open = ! open">
-							<Icon name="academicons:google-scholar" size={20}/>&nbsp; <span>Cite</span>
+							<Icon name="academicons:google-scholar" size={20}/>&nbsp; <span>Bibtex</span>
 						</button>
 					</li>
 					<li>
-						<a href="-" target="_blank" class="flex justify-center items-center">
+						<a href="#" target="_blank" class="flex justify-center items-center">
 							<Icon name="mdi:code" size={20}/>&nbsp; <span>Code</span>
 						</a>
 					</li>
 					<li>
-						<a href="-" target="_blank" class="flex justify-center items-center">
+						<a href="#" target="_blank" class="flex justify-center items-center">
 							<Icon name="mdi:microsoft-powerpoint" size={20}/>&nbsp; <span>Slides</span>
 						</a>
 					</li>
 				</ul>
-				<div x-show="open">
-					<pre is:raw class="overflow-x-auto">@article{richards2024,
+				<div id="bibtex" x-show="open">
+					<pre is:raw class="overflow-x-auto">@article{richards2024diss,
 	title = {Discussion of \guillemotleft{}{{Inference for extreme spatial temperature events in a changing climate with application to Ireland}}\guillemotright{} by {{Healy}}, {{D}}., {{Tawn}}, {{J}}., Thorne, P. \& {{Parnell}}, {{A}}.},
 	journal = {Journal of the Royal Statistical Society, Ser. C},
-	author = {Richards, Jordan and Lee, MyungWon and Carcaiso, Viviana and {de Carvalho}, Miguel},
+	author = {Richards, Jordan and Lee, {MyungWon} and Carcaiso, Viviana and {de Carvalho}, Miguel},
 	year = {2024, to appear}
 }</pre>
 				</div>
@@ -61,64 +61,56 @@ const t = translations(Astro.url);
 	</Container>
 	<Container class="pt-16 pb-5">
 		<div id="discussion" class="border-s-fuchsia-400">
-			<div class="text-lg font-bold underline m-1">
+			<div id="title" class="text-lg font-bold underline m-1">
 				<a href="-" target="_blank" rel="noopener">
-					Discussion of «<i>Inference for extreme spatial temperature events in a changing climate with application to Ireland</i>» by Healy, D., Tawn, J., Thorne, P. & Parnell, A. 
+					A Bayesian Lasso for Tail Index Regression
 				</a>
 			</div>
 			<div>
-				<span>Jordan Richards</span>; <span class="font-bold underline">MyungWon Lee</span>; <span>Viviana Carcaiso</span>; <span>Miguel de Carvalho</span> (2024, to appear) <br> <i>Journal of Royal Statistical Society: Series C</i>
+				<span class="font-bold underline">MyungWon Lee</span>; <span>Miguel de Carvalho</span>; <span>Daniel Paulin</span>; <span>Soraia Pereira</span>; <span>Ricardo Trigo</span>; <span>Carlos Da Camara</span>; (Coming Soon) <br> <span id="journal" class="italic"></span>
 			</div>
-			
 			<div x-data="{ open: false }" class="pt-3">
 				<ul >
 					<li>
-						<a href="-" target="_blank" class="flex justify-center items-center">
+						<a href="#" target="_blank" class="flex justify-center items-center">
 							<Icon name="mdi:file-pdf-box" size={20}/>&nbsp; <span>PDF</span>
 						</a>
 					</li>
 					<li >			
 						<button class="flex justify-center items-center" x-on:click="open = ! open">
-							<Icon name="academicons:google-scholar" size={20}/>&nbsp; <span>Cite</span>
+							<Icon name="academicons:google-scholar" size={20}/>&nbsp; <span>Bibtex</span>
 						</button>
 					</li>
 					<li>
-						<a href="-" target="_blank" class="flex justify-center items-center">
+						<a href="#" target="_blank" class="flex justify-center items-center">
 							<Icon name="mdi:code" size={20}/>&nbsp; <span>Code</span>
 						</a>
 					</li>
 					<li>
-						<a href="-" target="_blank" class="flex justify-center items-center">
+						<a href="#" target="_blank" class="flex justify-center items-center">
 							<Icon name="mdi:microsoft-powerpoint" size={20}/>&nbsp; <span>Slides</span>
 						</a>
 					</li>
 				</ul>
-				<div x-show="open">
-					<pre is:raw class="overflow-x-auto">@article{richards2024,
-	title = {Discussion of \guillemotleft{}{{Inference for extreme spatial temperature events in a changing climate with application to Ireland}}\guillemotright{} by {{Healy}}, {{D}}., {{Tawn}}, {{J}}., Thorne, P. \& {{Parnell}}, {{A}}.},
-	journal = {Journal of the Royal Statistical Society, Ser. C},
-	author = {Richards, Jordan and Lee, MyungWon and Carcaiso, Viviana and {de Carvalho}, Miguel},
-	year = {2024, to appear}
+				<div id="bibtex" x-show="open">
+					<pre is:raw class="overflow-x-auto">@article{lee2024bayesian,
+title={A Bayesian Lasso for Tail Index Regression},
+author={Lee, {MyungWon} and {de Carvalho}, Miguel and Paulin, Daniel and Pereira, Soraia and Trigo, Ricardo and {Da Camara}, Carlos}
+year={2024}
 }</pre>
 				</div>
 			</div>
 		</div>
-		<!-- <div x-data="{ expanded: false }">
-      <button @click="expanded = ! expanded">Toggle</button>
-      <div id="foo" x-show="expanded" x-collapse>
-        Lorem ipsum
-			</div>
-    </div> -->
 	</Container>	
 </Layout>
 
 <style>
 	ul {
-		@apply list-none flex justify-around lg:inline-block;
+		@apply list-none flex justify-around sm:inline-flex md:inline-block;
 	}
 
 	ul li {
-		@apply mr-auto leading-7 border-0 text-sm font-bold px-5 h-9 content-center items-center text-center bg-secondary-1000 text-white md:inline-block md:mr-3 hover:bg-yellow-600;
+		@apply mx-auto leading-5 border-0 text-xs font-bold px-2 h-9 content-center items-center text-center bg-secondary-1000 text-white md:inline-block md:mr-3 md:px-5 md:text-sm md:leading-7 hover:bg-yellow-600;
 		border-radius: 4px;
 	}
 	ul li span{
