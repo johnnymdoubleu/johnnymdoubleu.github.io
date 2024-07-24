@@ -8,8 +8,7 @@ const t = translations(Astro.url);
 ---
 
 <Layout title="Publication" description="List of my publications">
-	<Container class="pt-16">
-		<!-- <p set:html={t.about_description} /> -->
+	<Container class="pt-16 pb-5">
 		<div id="discussion" class="border-s-fuchsia-400">
 			<div class="text-lg font-bold underline m-1">
 				<a href="-" target="_blank" rel="noopener">
@@ -31,12 +30,6 @@ const t = translations(Astro.url);
 						<button class="flex justify-center items-center" @click="expanded = ! expanded">
 							<Icon name="academicons:google-scholar" size={20}/>&nbsp; Cite
 						</button>
-						<!-- <div id="foo" x-show="expanded" x-collapse>
-							Lorem ipsum
-						</div> -->
-						<!-- <button  x-data="{ open: false }" @click="open = !open">
-							{{ open ? 'Hide' : 'Show' }} 
-						</button> -->
 					</li>
 					<li>
 						<a href="-" target="_blank" class="flex justify-center items-center">
@@ -50,7 +43,12 @@ const t = translations(Astro.url);
 					</li>
 				</ul>
 				<div x-show="expanded" x-collapse>
-					This content will toggle based on the button click!
+					<pre is:raw class="overflow-x-auto">@article{richards2024,
+	title = {Discussion of \guillemotleft{}{{Inference for extreme spatial temperature events in a changing climate with application to Ireland}}\guillemotright{} by {{Healy}}, {{D}}., {{Tawn}}, {{J}}., Thorne, P. \& {{Parnell}}, {{A}}.},
+	journal = {Journal of the Royal Statistical Society, Ser. C},
+	author = {Richards, Jordan and Lee, MyungWon and Carcaiso, Viviana and {de Carvalho}, Miguel},
+	year = {2024, to appear}
+}</pre>
 				</div>
 			</div>
 		</div>
@@ -61,6 +59,57 @@ const t = translations(Astro.url);
 			</div>
     </div> -->
 	</Container>
+	<Container class="pt-16 pb-5">
+		<div id="discussion" class="border-s-fuchsia-400">
+			<div class="text-lg font-bold underline m-1">
+				<a href="-" target="_blank" rel="noopener">
+					Discussion of «<i>Inference for extreme spatial temperature events in a changing climate with application to Ireland</i>» by Healy, D., Tawn, J., Thorne, P. & Parnell, A. 
+				</a>
+			</div>
+			<div>
+				<span>Jordan Richards</span>; <span class="font-bold underline">MyungWon Lee</span>; <span>Viviana Carcaiso</span>; <span>Miguel de Carvalho</span> (2024, to appear) <br> <i>Journal of Royal Statistical Society: Series C</i>
+			</div>
+			
+			<div x-data="{ expanded: false }" class="pt-3">
+				<ul >
+					<li>
+						<a href="-" target="_blank" class="flex justify-center items-center">
+							<Icon name="mdi:file-pdf-box" size={20}/>&nbsp; PDF
+						</a>
+					</li>
+					<li >			
+						<button class="flex justify-center items-center" @click="expanded = ! expanded">
+							<Icon name="academicons:google-scholar" size={20}/>&nbsp; Cite
+						</button>
+					</li>
+					<li>
+						<a href="-" target="_blank" class="flex justify-center items-center">
+							<Icon name="mdi:code" size={20}/>&nbsp; Code
+						</a>
+					</li>
+					<li>
+						<a href="-" target="_blank" class="flex justify-center items-center">
+							<Icon name="mdi:microsoft-powerpoint" size={20}/>&nbsp; Slides
+						</a>
+					</li>
+				</ul>
+				<div x-show="expanded" x-collapse>
+					<pre is:raw class="overflow-x-auto">@article{richards2024,
+	title = {Discussion of \guillemotleft{}{{Inference for extreme spatial temperature events in a changing climate with application to Ireland}}\guillemotright{} by {{Healy}}, {{D}}., {{Tawn}}, {{J}}., Thorne, P. \& {{Parnell}}, {{A}}.},
+	journal = {Journal of the Royal Statistical Society, Ser. C},
+	author = {Richards, Jordan and Lee, MyungWon and Carcaiso, Viviana and {de Carvalho}, Miguel},
+	year = {2024, to appear}
+}</pre>
+				</div>
+			</div>
+		</div>
+		<!-- <div x-data="{ expanded: false }">
+      <button @click="expanded = ! expanded">Toggle</button>
+      <div id="foo" x-show="expanded" x-collapse>
+        Lorem ipsum
+			</div>
+    </div> -->
+	</Container>	
 </Layout>
 
 <style>
