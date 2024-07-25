@@ -6,8 +6,25 @@ import Container from "@src/components/Container.astro";
 const t = translations(Astro.url);
 ---
 
-<Layout title="About Me" description="Lorem ipsum dolor sit amet">
-	<Container class="pt-16">
-		<p set:html={t.about_description} />
+<head>
+	<title>Johnny MyungWon Lee - Curriculum Vitae</title>
+	<meta charset="utf-8"/>
+	<meta http-equiv="refresh" content="delay_time; URL=https://johnnymdoubleu.github.io/mw/cv.html" />
+</head>
+
+<Layout title="CV" description="Johnny's Curriculum vitae">
+
+	<Container>
+		<!-- <p set:html={t.about_description} /> -->
+		<iframe src="https://drive.google.com/file/d/1AD2mSfvGIz14wMjCT0gvQvQ1OeyBszRd/preview"></iframe>
 	</Container>
 </Layout>
+
+<style>
+	iframe {
+		width : 100%; 
+		min-height : 700px; 
+		border: 5px inset #D12215; 
+		border-radius: 12px;
+	}
+</style>
