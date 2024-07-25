@@ -1,5 +1,4 @@
 <button 
-  id="theme-selector"
 	x-data={`{
         theme: localStorage.theme || 'light',
         updateDocumentClassTheme: function() {
@@ -22,7 +21,8 @@
         },
       }`}
 	aria-label="Theme selector"
-	name="theme-selector"  
+	name="theme-selector"
+  id="theme-selector"
 	x-init="updateDocumentClassTheme()"
 	x-model="theme"
   x-on:click="switchTheme()"
