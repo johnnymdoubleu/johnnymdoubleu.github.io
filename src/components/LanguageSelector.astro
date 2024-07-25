@@ -10,10 +10,10 @@ const urlWithoutLocalePrefix = getUrlWithoutLocale(Astro.url);
 
 <script>
 	import { navigate } from "astro:transitions/client";
-	import Alpine from "alpinejs";
+	import alpine from "alpinejs";
 
 	document.addEventListener("alpine:init", () => {
-		Alpine.data("dropdownData", () => ({
+		alpine.data("dropdownData", () => ({
 			currentLocale: "${currentLocale}",
 			changePage(event: any) {
 				const newLocaleUrl = event.target.value;
