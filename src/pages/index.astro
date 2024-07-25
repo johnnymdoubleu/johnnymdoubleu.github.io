@@ -3,6 +3,8 @@
 import translations from "@utils/t.ts";
 import Layout from "@layouts/Layout.astro";
 import Container from "@src/components/Container.astro";
+import { Image } from 'astro:assets';
+import frontimage from '../assets/images/front/edin-frontpage.jpg';
 
 const t = translations(Astro.url);
 ---
@@ -10,7 +12,7 @@ const t = translations(Astro.url);
 <Layout>
 	<Container class="pt-16 lg:grid grid-cols-3 gap-4">
 		<div class="lg:col-span-2">
-			<img class="float-right w-5/12 m-3 rounded-md md:w-3/12 lg:hidden" src="/src/assets/images/front/edin-frontpage.jpg">
+			<Image class="float-right w-5/12 m-3 rounded-md md:w-3/12 lg:hidden" src={frontimage} alt="Me at Meadows"/>
 			<span set:html={t.home_description} />
 		</div>
 		<div class="lg:col-span-1">
