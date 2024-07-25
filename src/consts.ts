@@ -48,5 +48,5 @@ export const DEFAULT_LOCALE = "en";
 export const LOCALES = {
 	en: "en", // the `defaultLocale` value must present in `locales` keys
 	kr: "kr",
-	// it: "it",
+	it: "it",
 };
