@@ -27,8 +27,7 @@ const t = translations(Astro.url);
 	</Container>
 	<Container class="pt-5 lg:pt-1">
 		<blockquote class="saying">
-			<p>I love being under pressure. Even the pressure put on me by the media. That is how you outdo yourself.<br></p>
-			<h4>- Tony Parker &nbsp; [former NBA Champion]</h4>
+			<p set:html={t.quote_description}/>
 		</blockquote>
 	</Container>
 </Layout>

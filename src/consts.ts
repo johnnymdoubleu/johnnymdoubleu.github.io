@@ -38,7 +38,7 @@ export const PAGES: Page[] = [
 		href: "/blog",
 	},
 	{
-		title: "about",
+		title: "CV",
 		href: "/about",
 	},
 ];
