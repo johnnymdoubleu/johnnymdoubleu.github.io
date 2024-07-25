@@ -1,6 +1,5 @@
 ---
 import FormattedDate from "@components/FormattedDate.astro";
-import { Icon } from 'astro-icon/components';
 
 const today: Date = new Date();
 
@@ -11,7 +10,7 @@ interface Props {
 const { buildDate } = Astro.props;
 ---
 
-<footer transition:persist class="bg-gradient-to-br p-4 pb-16 lg:pt-4 text-center text-gray-500">
+<footer transition:persist class="bg-gradient-to-br p-4 pb-16 lg:pt-3 text-center text-gray-500">
 	<p>&copy; MW {today.getFullYear()} | Template based on <a class="hover:underline" href="https://github.com/zankhq">zank.studio</a></p> Last Edited: <FormattedDate date={buildDate} includeTime={false}/>
 
 	<div class="mt-4 flex justify-center space-x-4">
