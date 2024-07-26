@@ -1,6 +1,6 @@
 <button 
 	x-data={`{
-        theme: localStorage.theme || 'light',
+        theme: localStorage.theme,
         updateDocumentClassTheme: function() {
           if (localStorage.theme === 'dark') {
             document.documentElement.classList.add('dark');
@@ -21,7 +21,7 @@
         },
       }`}
 	aria-label="Theme selector"
-	name="theme-selector"
+	name="theme-toggle"
   id="theme-toggle"
 	x-init="updateDocumentClassTheme()"
 	x-model="theme"
