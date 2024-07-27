@@ -4,6 +4,7 @@ import icon from "astro-icon";
 import sitemap from "@astrojs/sitemap";
 import tailwind from "@astrojs/tailwind";
 import alpine from "@astrojs/alpinejs";
+import partytown from '@astrojs/partytown'
 import { i18n, filterSitemapByDefaultLocale } from "astro-i18n-aut/integration";
 import { DEFAULT_LOCALE, LOCALES, SITE_URL } from "./src/consts";
 
@@ -49,6 +50,11 @@ export default defineConfig({
 			locales,
 			defaultLocale,
 			exclude: ["pages/api/**/*", "pages/rss.xml.ts", "pages/[locale]/rss.xml.ts"],
+		}),
+		partytown({
+			config: {
+			  forward: ["dataLayer.push"],
+			},
 		}),
 	],
 });
