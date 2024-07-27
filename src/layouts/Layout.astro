@@ -36,5 +36,12 @@ const { image, title = SITE_TITLE, description = SITE_DESCRIPTION } = Astro.prop
 			<slot />
 		</main>
 		<Footer {buildDate} />
+		<script async src="https://www.googletagmanager.com/gtag/js?id=G-YXB2RPP5CR"></script>
+		<script is:raw>
+			window.dataLayer = window.dataLayer || [];
+			function gtag(){dataLayer.push(arguments);}
+			gtag('js', new Date());
+			gtag('config', 'G-YXB2RPP5CR');
+		</script>		
 	</body>
 </html>
