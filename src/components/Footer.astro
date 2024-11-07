@@ -12,7 +12,7 @@ const { buildDate } = Astro.props;
 
 <footer transition:persist class="bg-gradient-to-br p-4 pb-16 lg:pt-3 text-center text-gray-500">
 	<div class="mt-4 flex justify-center space-x-4">
-		<div class="flex justify-center">
+		<div class="hidden lg:flex justify-center">
 			<script type='text/javascript' id='clustrmaps' src='//cdn.clustrmaps.com/map_v2.js?cl=292524&w=400&t=tt&d=5D3MnYIEN9FUjoiutMf6lxow5FqSOgJqBpEplP57IvI&co=fafaf9&ct=808080&cmo=3acc3a&cmn=ff5353'></script>
 		</div>
 
@@ -20,7 +20,7 @@ const { buildDate } = Astro.props;
 			<div class="mt-2">
 				<p>&copy; MW {today.getFullYear()} | Template based on <a class="hover:underline" href="https://github.com/zankhq">zank.studio</a></p> Last Edited: <FormattedDate date={buildDate} includeTime={false}/>
 			</div>
-			<div class="mt-2 flex justify-center space-x-4">
+			<div class="mt-2 flex justify-center">
 		<a href="mailto: johnny.myungwon.lee@ed.ac.uk" target="_blank" class="footerIcon">
 			<span class="sr-only">Email Me</span>
 			<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" astro-icon="social/envelope">
