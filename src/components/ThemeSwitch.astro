@@ -1,15 +1,12 @@
 ---
 import Alpine from "alpinejs"
 ---
-<button 
-  x-data="themeSwitcher()"
-  aria-label="Theme selector"
-  name="theme-toggle"
-  id="theme-toggle"
-  x-init="initializeTheme()"
-  x-on:click="switchTheme()"
-  type="button"
-  class="bg-stone-50 text-stone-800 border-0 transition-all duration-300 dark:text-stone-50 cursor-pointer focus-visible:outline-none dark:bg-stone-800">
+<button
+  x-data="themeSwitcher"
+  x-init="initializeTheme"
+  @click="toggleTheme"
+  aria-label="Toggle Theme"
+  class="bg-stone-50 text-stone-800 border-0 transition-all duration-300 dark:text-stone-50 dark:bg-stone-800 focus:outline-none">
 <!-- <button 
 	x-data={`{
         theme: localStorage.theme,
@@ -45,28 +42,28 @@ import Alpine from "alpinejs"
 </button>
 
 <script>
-  function themeSwitcher() {
-    return {
+  document.addEventListener('alpine:init', () => {
+    Alpine.data('themeSwitcher', () => ({
       theme: 'light',
       initializeTheme() {
         const savedTheme = localStorage.getItem('theme');
         this.theme = savedTheme || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-        this.applyTheme();
+        this.updateDOM();
       },
-      applyTheme() {
+      toggleTheme() {
+        this.theme = this.theme === 'dark' ? 'light' : 'dark';
+        this.updateDOM();
+        localStorage.setItem('theme', this.theme);
+      },
+      updateDOM() {
         if (this.theme === 'dark') {
           document.documentElement.classList.add('dark');
         } else {
           document.documentElement.classList.remove('dark');
         }
-        localStorage.setItem('theme', this.theme);
       },
-      switchTheme() {
-        this.theme = this.theme === 'dark' ? 'light' : 'dark';
-        this.applyTheme();
-      }
-    };
-  }
+    }));
+  });
 </script>
 
 <style>
