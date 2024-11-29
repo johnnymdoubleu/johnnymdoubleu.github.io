@@ -44,6 +44,31 @@ import Alpine from "alpinejs"
   </svg>
 </button>
 
+<script>
+  function themeSwitcher() {
+    return {
+      theme: 'light',
+      initializeTheme() {
+        const savedTheme = localStorage.getItem('theme');
+        this.theme = savedTheme || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        this.applyTheme();
+      },
+      applyTheme() {
+        if (this.theme === 'dark') {
+          document.documentElement.classList.add('dark');
+        } else {
+          document.documentElement.classList.remove('dark');
+        }
+        localStorage.setItem('theme', this.theme);
+      },
+      switchTheme() {
+        this.theme = this.theme === 'dark' ? 'light' : 'dark';
+        this.applyTheme();
+      }
+    };
+  }
+</script>
+
 <style>
   .sun { @apply fill-stone-800;}
   .moon { fill: transparent; }
