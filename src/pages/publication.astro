@@ -8,6 +8,50 @@ const t = translations(Astro.url);
 ---
 
 <Layout title="Publication" description="List of my publications">
+	<Container class="pt-5 pb-5">
+		<div id="batir" class="box p-4 rounded-md">
+			<div id="title" class="text-lg font-bold underline m-1">
+				<a href="#" target="_blank" rel="noopener">
+					BLAST: A Bayesian Lasso Tail Index Regression Model with an Application to Extreme Wildfires
+				</a>
+			</div>
+			<div>
+				<span class="font-bold underline">MyungWon Lee</span>; <span>Miguel de Carvalho</span>; <span>Daniel Paulin</span>; <span>Soraia Pereira</span>; <span>Ricardo Trigo</span>; <span>Carlos Da Camara</span>; (2024, to appear) <br> <span id="journal" class="italic">-</span>
+			</div>
+			
+			<div x-data="{ open: false }" class="pt-3">
+				<ul>
+					<li>
+						<a href="#" target="_blank" class="flex justify-center items-center">
+							<Icon name="mdi:file-pdf-box" size={15}/>&nbsp; <span>PDF</span>
+						</a>
+					</li>
+					<li>			
+						<button class="flex justify-center items-center" x-on:click="open = ! open">
+							<Icon name="academicons:google-scholar" size={15}/>&nbsp; <span>Bibtex</span>
+						</button>
+					</li>
+					<li>
+						<a href="https://github.com/johnnymdoubleu/BLAST" target="_blank" class="flex justify-center items-center">
+							<Icon name="mdi:code" size={15}/>&nbsp; <span>Code</span>
+						</a>
+					</li>
+					<li>
+						<a href="#" target="_blank" class="flex justify-center items-center">
+							<Icon name="mdi:microsoft-powerpoint" size={15}/>&nbsp; <span>Slides</span>
+						</a>
+					</li>
+				</ul>
+				<div id="bibtex" x-show="open" x-transition.duration.500ms style="white-space: pre-wrap;">
+					<pre is:raw class="overflow-x-auto">@article{lee2024bayesian,
+	title={BLAST: A Bayesian Lasso Tail Index Regression Model with an Application to Extreme Wildfires},
+	author={Lee, {MyungWon} and {de Carvalho}, Miguel and Paulin, Daniel and Pereira, Soraia and Trigo, Ricardo and {Da Camara}, Carlos}
+	year={to appear}
+}</pre>
+				</div>
+			</div>
+		</div>
+	</Container>
 	<Container class="pt-8 pb-5">
 		<div id="discussion" class="box p-4 rounded-md">
 			<div id="title" class="text-lg font-bold underline m-1">
@@ -59,50 +103,7 @@ const t = translations(Astro.url);
 			</div>
     </div> -->
 	</Container>
-	<Container class="pt-5 pb-5">
-		<div id="batir" class="box p-4 rounded-md">
-			<div id="title" class="text-lg font-bold underline m-1">
-				<a href="#" target="_blank" rel="noopener">
-					BLAST: A Bayesian Lasso Tail Index Regression Model with an Application to Extreme Wildfires
-				</a>
-			</div>
-			<div>
-				<span class="font-bold underline">MyungWon Lee</span>; <span>Miguel de Carvalho</span>; <span>Daniel Paulin</span>; <span>Soraia Pereira</span>; <span>Ricardo Trigo</span>; <span>Carlos Da Camara</span>; (2024, to appear) <br> <span id="journal" class="italic">-</span>
-			</div>
-			
-			<div x-data="{ open: false }" class="pt-3">
-				<ul>
-					<li>
-						<a href="#" target="_blank" class="flex justify-center items-center">
-							<Icon name="mdi:file-pdf-box" size={15}/>&nbsp; <span>PDF</span>
-						</a>
-					</li>
-					<li>			
-						<button class="flex justify-center items-center" x-on:click="open = ! open">
-							<Icon name="academicons:google-scholar" size={15}/>&nbsp; <span>Bibtex</span>
-						</button>
-					</li>
-					<li>
-						<a href="https://github.com/johnnymdoubleu/BLAST" target="_blank" class="flex justify-center items-center">
-							<Icon name="mdi:code" size={15}/>&nbsp; <span>Code</span>
-						</a>
-					</li>
-					<li>
-						<a href="#" target="_blank" class="flex justify-center items-center">
-							<Icon name="mdi:microsoft-powerpoint" size={15}/>&nbsp; <span>Slides</span>
-						</a>
-					</li>
-				</ul>
-				<div id="bibtex" x-show="open" x-transition.duration.500ms>
-					<pre is:raw class="overflow-x-auto">@article{lee2024bayesian,
-	title={BLAST: A Bayesian Lasso Tail Index Regression Model with an Application to Extreme Wildfires},
-	author={Lee, {MyungWon} and {de Carvalho}, Miguel and Paulin, Daniel and Pereira, Soraia and Trigo, Ricardo and {Da Camara}, Carlos}
-	year={to appear}
-}</pre>
-				</div>
-			</div>
-		</div>
-	</Container>
+
 	<Container class="pt-5 pb-5">
 		<div id="brtir" class="box p-4 rounded-md">
 			<div id="title" class="text-lg font-bold underline m-1">
