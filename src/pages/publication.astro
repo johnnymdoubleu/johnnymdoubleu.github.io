@@ -8,7 +8,7 @@ const t = translations(Astro.url);
 ---
 
 <Layout title="Publication" description="List of my publications">
-	<Container class="pt-5 pb-5">
+	<Container class="pt-5 pb-5" style="white-space: pre-wrap; word-wrap: break-word;">
 		<div id="batir" class="box p-4 rounded-md">
 			<div id="title" class="text-lg font-bold underline m-1">
 				<a href="#" target="_blank" rel="noopener">
@@ -16,7 +16,7 @@ const t = translations(Astro.url);
 				</a>
 			</div>
 			<div>
-				<span class="font-bold underline">MyungWon Lee</span>; <span>Miguel de Carvalho</span>; <span>Daniel Paulin</span>; <span>Soraia Pereira</span>; <span>Ricardo Trigo</span>; <span>Carlos Da Camara</span>; (2024, to appear) <br> <span id="journal" class="italic">-</span>
+				<span class="font-bold underline">MyungWon Lee</span>; <span>Miguel de Carvalho</span>; <span>Daniel Paulin</span>; <span>Soraia Pereira</span>; <span>Ricardo Trigo</span>; <span>Carlos Da Camara</span>; (2025, to appear) <br> <span id="journal" class="italic">-</span>
 			</div>
 			
 			<div x-data="{ open: false }" class="pt-3">
@@ -42,7 +42,7 @@ const t = translations(Astro.url);
 						</a>
 					</li>
 				</ul>
-				<div id="bibtex" x-show="open" x-transition.duration.500ms style="white-space: pre-wrap; word-wrap: break-word;">
+				<div id="bibtex" x-show="open" x-transition.duration.500ms>
 					<pre is:raw class="overflow-x-auto">@article{lee2024bayesian,
 	title={BLAST: A Bayesian Lasso Tail Index Regression Model with an Application to Extreme Wildfires},
 	author={Lee, {MyungWon} and {de Carvalho}, Miguel and Paulin, Daniel and Pereira, Soraia and Trigo, Ricardo and {Da Camara}, Carlos}
@@ -117,7 +117,7 @@ const t = translations(Astro.url);
 			<div x-data="{ open: false }" class="pt-3">
 				<ul>
 					<li>
-						<a href="#" target="_blank" class="flex justify-center items-center">
+						<a href="https://www.researchgate.net/publication/374809175_Bayesian_Regularisation_for_Tail_Index_Regression" target="_blank" class="flex justify-center items-center">
 							<Icon name="mdi:file-pdf-box" size={15}/>&nbsp; <span>PDF</span>
 						</a>
 					</li>
