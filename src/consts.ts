@@ -7,7 +7,7 @@ export const SITE_TITLE: string = "Johnny MyungWon Lee";
 export const SITE_DESCRIPTION: string = "Welcome to Johnny's Mansion";
 
 // SEO metadata
-export const INSTAGRAM_CREATOR: string = "@johnni.ly";
+// export const TWITTER_CREATOR: string = "";
 
 // Navigation
 type Page = {
