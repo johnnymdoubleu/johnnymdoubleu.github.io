@@ -94,3 +94,17 @@ ol.teaching{
 h5.teaching{
 	@apply font-bold text-xl pt-4 pb-3;
 }
+
+ul.activity{
+	@apply list-item list-inside;
+}
+	ul.activity h6{
+		@apply font-light;
+	}
+	ul.activity li{
+		@apply pl-4;
+		list-style-type:"- ";
+	}
+h6.line{
+	@apply font-light underline;
+}
