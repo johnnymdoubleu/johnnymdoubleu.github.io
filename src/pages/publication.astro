@@ -18,7 +18,6 @@ const t = translations(Astro.url);
 			<div>
 				<span>Miguel de Carvalho</span>; <span>Vianey Palacios Ramirez</span>; <span>Lígia Henriques-Rodrigues</span>; <span class="font-bold underline">Myung Won Lee</span>; (submitted) <br> <span id="journal" class="italic">Book Chapter, Chapman & Hall/CRC Handbook on Statistics of Extremes</span>
 			</div>
-			
 			<div x-data="{ open: false }" class="pt-3">
 				<ul>
 					<li>
@@ -43,10 +42,25 @@ const t = translations(Astro.url);
 					</li>
 				</ul>
 				<div id="bibtex" x-show="open" x-transition.duration.500ms>
-					<pre style="white-space: pre-wrap; width: 100%;" is:raw class="overflow-x-auto">@article{lee2024bayesian,
-	title={BLAST: A Bayesian Lasso Tail Index Regression Model with an Application to Extreme Wildfires},
-	author={{de Carvalho}, Miguel and Palacios Ramirez, Vianey and Henriques-Rodrigues, Lígia and Lee, {Myung Won}}
-	year={2025, to appear}
+					<pre style="white-space: pre-wrap; width: 100%;" is:raw class="overflow-x-auto">@inbook{decarvalho2025regression,
+	title={Regression Models for Extreme Events},
+	author={{de Carvalho}, Miguel and Palacios Ramirez, Vianey and Henriques-Rodrigues, Lígia and Lee, {Myung Won}},	
+	year={2025, to appear},
+  booktitle    = {Handbook on Statistics of Extremes},
+  publisher    = {Chapman \& Hall/CRC},
+  pages        = {101--112},
+  note         = {This is a sample entry for a chapter in a book.},
+  editor       = {{de Carvalho}, Miguel and Huser, Raphaël and Naveau, Philippe and Reich, {Brian J.}}
+}
+
+@book{decarvalho2025handbook,
+	year      = {2025},
+	editor    = {{de Carvalho}, Miguel and Huser, Raphaël and Naveau, Philippe and Reich, {Brian J.}},
+	title     = {Handbook on Statistics of Extremes},
+	booktitle = {Handbook on Statistics of Extremes},
+	author    = {{de Carvalho}, Miguel and others},
+	publisher = {Chapman \& Hall/CRC}
+}
 }</pre>
 				</div>
 			</div>
@@ -63,7 +77,6 @@ const t = translations(Astro.url);
 			<div>
 				<span class="font-bold underline">Myung Won Lee</span>; <span>Miguel de Carvalho</span>; <span>Daniel Paulin</span>; <span>Soraia Pereira</span>; <span>Ricardo Trigo</span>; <span>Carlos Da Camara</span> (submitted) <br> <span id="journal" class="italic">-</span>
 			</div>
-			
 			<div x-data="{ open: false }" class="pt-3">
 				<ul>
 					<li>
@@ -88,15 +101,16 @@ const t = translations(Astro.url);
 					</li>
 				</ul>
 				<div id="bibtex" x-show="open" x-transition.duration.500ms>
-					<pre style="white-space: pre-wrap; width: 100%;" is:raw class="overflow-x-auto">@article{lee2024bayesian,
+					<pre style="white-space: pre-wrap; width: 100%;" is:raw class="overflow-x-auto">@article{lee2025bayesian,
 	title={BLAST: A Bayesian Lasso Tail Index Regression Model with an Application to Extreme Wildfires},
-	author={Lee, {Myung Won} and {de Carvalho}, Miguel and Paulin, Daniel and Pereira, Soraia and Trigo, Ricardo and {Da Camara}, Carlos}
+	author={Lee, {Myung Won} and {de Carvalho}, Miguel and Paulin, Daniel and Pereira, Soraia and Trigo, Ricardo and {Da Camara}, Carlos},
 	year={to appear}
 }</pre>
 				</div>
 			</div>
 		</div>
 	</Container>
+
 	<Container class="pt-8 pb-5">
 		<div id="discussion" class="box p-4 rounded-md">
 			<div id="title" class="text-lg font-bold underline m-1">
@@ -105,7 +119,6 @@ const t = translations(Astro.url);
 			<div>
 				<span>Jordan Richards</span>; <span class="font-bold underline">Myung Won Lee</span>; <span>Viviana Carcaiso</span>; <span>Miguel de Carvalho</span> (2024, to appear) <br> <span id="journal" class="italic">Journal of Royal Statistical Society: Series C</span>
 			</div>
-			
 			<div x-data="{ open: false }" class="pt-3">
 				<ul>
 					<li>
