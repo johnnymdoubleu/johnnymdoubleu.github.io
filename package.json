@@ -39,7 +39,7 @@
 		"@iconify/utils": "^2.1.25",
 		"@tabler/icons": "^3.11.0",
 		"@types/alpinejs": "^3.13.10",
-		"alpinejs": "^3.14.1",
+		"alpinejs": "^3.14.7",
 		"astro": "^4.16.16",
 		"astro-i18n-aut": "^0.7.0",
 		"locale-emoji": "^0.3.0",

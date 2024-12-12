@@ -6,7 +6,7 @@ import { DEFAULT_LOCALE, LOCALES } from "@src/consts";
 import { getLocale } from "astro-i18n-aut";
 
 import en from "@locales/en.json";
-import it from "@locales/it.json";
+// import it from "@locales/it.json";
 import kr from "@locales/kr.json";
 
 const handler = {
@@ -17,7 +17,7 @@ const handler = {
 
 
 const kr_proxy = new Proxy(kr, handler);
-const it_proxy = new Proxy(it, handler);
+// const it_proxy = new Proxy(it, handler);
 const en_proxy = new Proxy(en, handler);
 
 export const defaultLocale = DEFAULT_LOCALE;
@@ -34,8 +34,8 @@ export default function t(astroUrl: URL): Locales {
 	switch (locale) {
 		case "kr":
 			return kr_proxy as Locales;
-		case "it":
-			return it_proxy as Locales;
+		// case "it":
+		// 	return it_proxy as Locales;
 		default:
 			return en_proxy as Locales;
 	}
@@ -49,9 +49,9 @@ export function tFn(astroUrl: URL) {
 		case "kr":
 			translations = kr_proxy;
 			break;
-		case "it":
-			translations = it_proxy;
-			break;
+		// case "it":
+		// 	translations = it_proxy;
+		// 	break;
 		default:
 			translations = en_proxy;
 			break;

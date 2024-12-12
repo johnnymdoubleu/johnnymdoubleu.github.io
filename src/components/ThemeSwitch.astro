@@ -1,6 +1,3 @@
----
-import Alpine from "alpinejs"
----
 <button
   x-data="themeSwitcher"
   x-init="initializeTheme"
@@ -42,8 +39,10 @@ import Alpine from "alpinejs"
 </button>
 
 <script>
+  import alpine from "alpinejs";
+
   document.addEventListener('alpine:init', () => {
-    Alpine.data('themeSwitcher', () => ({
+    alpine.data('themeSwitcher', () => ({
       theme: 'light',
       initializeTheme() {
         const savedTheme = localStorage.getItem('theme');

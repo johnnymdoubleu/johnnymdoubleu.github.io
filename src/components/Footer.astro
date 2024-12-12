@@ -14,9 +14,13 @@ const { buildDate } = Astro.props;
 	<div class="mt-4 flex justify-center space-x-4">
 		<div id="map" class="hidden lg:flex justify-center">
 			<script>
-				function loadClustrmaps(theme) {
+				function loadClustrmaps(theme: 'light' | 'dark') {
 					// Clear any existing script
 					const container = document.getElementById('map');
+					if (!container) {
+						console.warn("Container with ID 'map' not found.");
+						return; // Exit early if container is null
+					}					
 					container.innerHTML = '';
 			
 					// Create the new script tag
@@ -25,11 +29,14 @@ const { buildDate } = Astro.props;
 					script.id = 'clustrmaps';
 			
 					// Set the source based on the theme
-					if (theme === 'dark') {
-						script.src = '//cdn.clustrmaps.com/map_v2.js?cl=fafaf9&w=400&t=tt&d=5D3MnYIEN9FUjoiutMf6lxow5FqSOgJqBpEplP57IvI&co=292524&ct=808080&cmo=3acc3a&cmn=ff5353';
-					} else {
-						script.src = '//cdn.clustrmaps.com/map_v2.js?cl=292524&w=400&t=tt&d=5D3MnYIEN9FUjoiutMf6lxow5FqSOgJqBpEplP57IvI&co=fafaf9&ct=808080&cmo=3acc3a&cmn=ff5353';
-					}
+					script.src = theme === 'dark'
+					? '//cdn.clustrmaps.com/map_v2.js?cl=fafaf9&w=400&t=tt&d=5D3MnYIEN9FUjoiutMf6lxow5FqSOgJqBpEplP57IvI&co=292524&ct=808080&cmo=3acc3a&cmn=ff5353'
+					: '//cdn.clustrmaps.com/map_v2.js?cl=292524&w=400&t=tt&d=5D3MnYIEN9FUjoiutMf6lxow5FqSOgJqBpEplP57IvI&co=fafaf9&ct=808080&cmo=3acc3a&cmn=ff5353';
+					// if (theme === 'dark') {
+					// 	script.src = '//cdn.clustrmaps.com/map_v2.js?cl=fafaf9&w=400&t=tt&d=5D3MnYIEN9FUjoiutMf6lxow5FqSOgJqBpEplP57IvI&co=292524&ct=808080&cmo=3acc3a&cmn=ff5353';
+					// } else {
+					// 	script.src = '//cdn.clustrmaps.com/map_v2.js?cl=292524&w=400&t=tt&d=5D3MnYIEN9FUjoiutMf6lxow5FqSOgJqBpEplP57IvI&co=fafaf9&ct=808080&cmo=3acc3a&cmn=ff5353';
+					// }
 			
 					// Append the script tag to the container
 					container.appendChild(script);
@@ -46,7 +53,7 @@ const { buildDate } = Astro.props;
 				});
 			
 				observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
-			</script>			
+			</script>
 			<!-- <script type='text/javascript' id='clustrmaps' src='//cdn.clustrmaps.com/map_v2.js?cl=292524&w=400&t=tt&d=5D3MnYIEN9FUjoiutMf6lxow5FqSOgJqBpEplP57IvI&co=fafaf9&ct=808080&cmo=3acc3a&cmn=ff5353'></script> -->
 		</div>
 		<!-- <div class="hidden lg:flex justify-center light:hidden">
