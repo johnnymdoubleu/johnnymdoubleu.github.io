@@ -74,7 +74,7 @@ ul.eninterest {
 	}
 
 ul.krinterest {
-	@apply list-none pt-3 w-1/2 lg:w-5/12
+	@apply list-none pt-3 w-1/2 lg:w-6/12
 }
 	ul.krinterest li{
 		@apply mt-1 border-solid border-t-2 border-t-slate-200
