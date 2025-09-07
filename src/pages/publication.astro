@@ -9,6 +9,48 @@ import Container from "@src/components/Container.astro";
 
 <Layout title="Johnny MyungWon Lee - Publication List" description="List of my publications">
 	<Container class="pt-5 pb-5">
+		<div id="malka" class="box p-4 rounded-md">
+			<div id="title" class="text-lg font-bold underline">
+				<a href="#" target="_blank" rel="noopener">Divide, Interact, Sample: The Two-System Paradigm</a>
+			</div>
+			<div>
+				<span>James Chok</span>;<span class="font-bold underline">Myung Won Lee</span>; <span>Daniel Paulin</span>; <span>Geoffrey M. Vasil</span> (submitted) <br> <span id="journal" class="italic">-</span>
+			</div>
+			<div x-data="{ open: false }" class="pt-3">
+				<ul>
+					<li>
+						<a href="-"  target="_blank" class="flex justify-center items-center">
+							<svg xmlns="http://www.w3.org/2000/svg" width="15px" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path stroke-dasharray="62" stroke-dashoffset="62" d="M22 4V3C22 2.45 21.55 2 21 2H7C6.45 2 6 2.45 6 3V17C6 17.55 6.45 18 7 18H21C21.55 18 22 17.55 22 17z"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.6s" values="62;124"/></path><g stroke-dasharray="10" stroke-dashoffset="10"><path d="M10 6h8"><animate fill="freeze" attributeName="stroke-dashoffset" begin="0.7s" dur="0.2s" values="10;0"/></path><path d="M10 10h8"><animate fill="freeze" attributeName="stroke-dashoffset" begin="0.9s" dur="0.2s" values="10;0"/></path></g><path stroke-dasharray="7" stroke-dashoffset="7" d="M10 14h5"><animate fill="freeze" attributeName="stroke-dashoffset" begin="1.1s" dur="0.2s" values="7;0"/></path><path stroke-dasharray="34" stroke-dashoffset="34" d="M2 6V21C2 21.55 2.45 22 3 22H18"><animate fill="freeze" attributeName="stroke-dashoffset" begin="1.4s" dur="0.4s" values="34;68"/></path></g></svg>&nbsp; <span>Paper</span><!-- <Icon name="mdi:file-pdf-box" size={15}/> -->
+						</a>
+					</li>
+					<li>			
+						<button class="flex justify-center items-center" x-on:click="open = ! open">
+							<Icon name="academicons:google-scholar" size={15}/>&nbsp; <span>Bibtex</span>
+						</button>
+					</li>
+					<li>
+						<a href="https://github.com/pyMALB-Dev" target="_blank" class="flex justify-center items-center">
+							<svg xmlns="http://www.w3.org/2000/svg" width="15px" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path stroke-dasharray="64" stroke-dashoffset="64" stroke-width="2" d="M13 3L19 9V21H5V3H13"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.6s" values="64;0"/></path><path stroke-dasharray="14" stroke-dashoffset="14" d="M12.5 3V8.5H19"><animate fill="freeze" attributeName="stroke-dashoffset" begin="0.7s" dur="0.2s" values="14;0"/></path><g stroke-dasharray="8" stroke-dashoffset="8" stroke-width="2"><path d="M10 13L8 15L10 17"><animate fill="freeze" attributeName="stroke-dashoffset" begin="1s" dur="0.2s" values="8;0"/></path><path d="M14 13L16 15L14 17"><animate fill="freeze" attributeName="stroke-dashoffset" begin="1.2s" dur="0.2s" values="8;0"/></path></g></g></svg>&nbsp; <span>Code</span><!-- <Icon name="mdi:code" size={15}/> -->
+						</a>
+					</li>
+					<li>
+						<a href="-" class="flex justify-center items-center">
+							<Icon name="mdi:microsoft-powerpoint" size={15}/>&nbsp; <span>Slides</span>
+						</a>
+					</li>
+				</ul>
+				<div id="bibtex" x-show="open" x-transition.duration.500ms style="white-space: pre-wrap;">
+					<pre style="white-space: pre-wrap; width: 100%;" is:raw class="overflow-x-auto">@article{chok2025twosystems,
+	title = {Divide, Interact, Sample: The Two-System Paradigm},
+	author = {Chok, James and Lee, {Myung Won} and Paulin, Daniel and Vasil, Geoffrey M.},
+	year = {2025}
+}</pre>
+				</div>
+			</div>
+		</div>
+	</Container>
+
+	<Container class="pt-5 pb-5">
 		<div id="batir" class="box p-4 rounded-md">
 			<div id="title" class="text-lg font-bold underline">
 				<a href="#" target="_blank" rel="noopener">BLAST: A Bayesian Lasso Tail Index Regression Model with an Application to Extreme Wildfires</a>
