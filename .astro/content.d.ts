@@ -1,7 +1,7 @@
 declare module 'astro:content' {
 	interface Render {
 		'.mdx': Promise<{
-			Content: import('astro').MarkdownInstance<{}>['Content'];
+			Content: import('astro').MDXContent;
 			headings: import('astro').MarkdownHeading[];
 			remarkPluginFrontmatter: Record<string, any>;
 			components: import('astro').MDXInstance<{}>['components'];
@@ -122,12 +122,11 @@ declare module 'astro:content' {
 	type InferEntrySchema<C extends keyof DataEntryMap> = import('astro/zod').infer<
 		ReturnTypeOrOriginal<Required<ContentConfig['collections'][C]>['schema']>
 	>;
-	type ExtractLoaderConfig<T> = T extends { loader: infer L } ? L : never;
 	type InferLoaderSchema<
 		C extends keyof DataEntryMap,
-		L = ExtractLoaderConfig<ContentConfig['collections'][C]>,
+		L = Required<ContentConfig['collections'][C]>['loader'],
 	> = L extends { schema: import('astro/zod').ZodSchema }
-		? import('astro/zod').infer<L['schema']>
+		? import('astro/zod').infer<Required<ContentConfig['collections'][C]>['loader']['schema']>
 		: any;
 
 	type DataEntryMap = {
