@@ -1,12 +1,12 @@
 ---
 import { getLocale } from "astro-i18n-aut";
-import { ViewTransitions } from "astro:transitions";
+// 1. Update the import to ClientRouter
+import { ClientRouter } from "astro:transitions"; 
 import BaseHead from "@components/BaseHead.astro";
 import Navbar from "@components/Navbar.astro";
 import Footer from "@components/Footer.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "@src/consts";
 import '@fontsource/raleway';
-
 
 const locale = getLocale(Astro.url);
 
@@ -14,35 +14,36 @@ const locale = getLocale(Astro.url);
 const buildDate = new Date(__DATE__);
 
 type Props = {
-	title?: string;
-	description?: string;
-	image?: string;
+  title?: string;
+  description?: string;
+  image?: string;
 };
 
 const { image, title = SITE_TITLE, description = SITE_DESCRIPTION } = Astro.props as Props;
 ---
 
 <html lang={locale}>
-	<head>
-		<BaseHead title={title} description={description} image={image} />
-		{/* Comment the line below if you want to remove client side routing */}
-		<ViewTransitions />
-		<!-- <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script> -->
-		<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1682309227131967" crossorigin="anonymous"></script>
-	</head>
+  <head>
+    <BaseHead title={title} description={description} image={image} />
+    {/* Comment the line below if you want to remove client side routing */}
+    
+    <ClientRouter /> 
+    
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1682309227131967" crossorigin="anonymous"></script>
+  </head>
 
-	<body>
-		<Navbar />
-		<main>
-			<slot />
-		</main>
-		<Footer {buildDate} />
-		<script type="text/partytown" async src="https://www.googletagmanager.com/gtag/js?id=G-YXB2RPP5CR"></script>
-		<script type="text/partytown" is:raw>
-			window.dataLayer = window.dataLayer || [];
-			function gtag(){dataLayer.push(arguments);}
-			gtag('js', new Date());
-			gtag('config', 'G-YXB2RPP5CR');
-		</script>		
-	</body>
+  <body>
+    <Navbar />
+    <main>
+      <slot />
+    </main>
+    <Footer {buildDate} />
+    <script type="text/partytown" async src="https://www.googletagmanager.com/gtag/js?id=G-YXB2RPP5CR"></script>
+    <script type="text/partytown" is:raw>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-YXB2RPP5CR');
+    </script>   
+  </body>
 </html>
