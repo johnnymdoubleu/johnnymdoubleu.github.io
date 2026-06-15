@@ -3,7 +3,7 @@
 
 // Website metadata
 export const SITE_URL: string = "https://johnnymdoubleu.github.io";
-export const SITE_TITLE: string = "Johnny MyungWon Lee";
+export const SITE_TITLE: string = "Johnny Myung Won Lee";
 export const SITE_DESCRIPTION: string = "Welcome to Johnny's Mansion";
 
 // SEO metadata
