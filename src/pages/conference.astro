@@ -9,49 +9,133 @@ import Container from "@src/components/Container.astro";
 <Layout title="Myung Won Lee - Conferences" description="List of Talks and Poster Presentations">
 	<Container class="pt-16">
 		<ul class="alt">
-			<li>
-				<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="display:inline-block;"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><rect width="16" height="16" x="4" y="4" stroke-dasharray="64" stroke-dashoffset="64" rx="1"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.5s" values="64;0"/></rect><path stroke-dasharray="6" stroke-dashoffset="6" d="M7 4V2M17 4V2"><animate fill="freeze" attributeName="stroke-dashoffset" begin="0.5s" dur="0.2s" values="6;0"/></path><path stroke-dasharray="12" stroke-dashoffset="12" d="M7 11H17"><animate fill="freeze" attributeName="stroke-dashoffset" begin="0.8s" dur="0.2s" values="12;0"/></path><path stroke-dasharray="9" stroke-dashoffset="9" d="M7 15H14"><animate fill="freeze" attributeName="stroke-dashoffset" begin="1s" dur="0.2s" values="9;0"/></path></g><rect width="14" height="0" x="5" y="5" fill="#f32853"><animate fill="freeze" attributeName="height" begin="0.5s" dur="0.2s" values="0;3"/></rect></svg>
-				<span>World Meeting 2026 @ International Soceity for Bayesian Analysis (ISBA); Nagoya, Japan</span> - Bayesian Kolmogorov&ndash;Arnold Neural Model via Picking-and-Pruning Prior. (Poster,
-				<a class="home" href="https://isba2026.github.io/assets/isba2026_program.pdf" target="_blank" rel="noopener" class="summary-link">
-					link</a>)
-			</li>
-			<li>
-				<span>Generative AI Modelling for Extreme Events (GAME) Workshop 2026 @ GAMEX ; Bologna, Italy</span> - Generative Modelling for Cascading Extremes via Autoregressive Transformer. (Invited Talk,
+			<li class="conference-row">
+				<span class="conference-badge", style="background: #ca220c;">ISBA</span>
+				<div class="conference-content">
+					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="display:inline-block;"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><rect width="16" height="16" x="4" y="4" stroke-dasharray="64" stroke-dashoffset="64" rx="1"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.5s" values="64;0"/></rect><path stroke-dasharray="6" stroke-dashoffset="6" d="M7 4V2M17 4V2"><animate fill="freeze" attributeName="stroke-dashoffset" begin="0.5s" dur="0.2s" values="6;0"/></path><path stroke-dasharray="12" stroke-dashoffset="12" d="M7 11H17"><animate fill="freeze" attributeName="stroke-dashoffset" begin="0.8s" dur="0.2s" values="12;0"/></path><path stroke-dasharray="9" stroke-dashoffset="9" d="M7 15H14"><animate fill="freeze" attributeName="stroke-dashoffset" begin="1s" dur="0.2s" values="9;0"/></path></g><rect width="14" height="0" x="5" y="5" fill="#f32853"><animate fill="freeze" attributeName="height" begin="0.5s" dur="0.2s" values="0;3"/></rect></svg><span class="conference-title">
+						World Meeting 2026 @ International Society for Bayesian Analysis (ISBA); Nagoya, Japan
+					</span>
+					<br />
+					Bayesian Kolmogorov&ndash;Arnold Neural Model via Picking-and-Pruning Prior. (Poster,
+						<a class="home summary-link" href="https://isba2026.github.io/assets/isba2026_program.pdf" target="_blank" rel="noopener">link</a>)
+				</div>
+				<span class="conference-badge", style="background: #0c4fca;">GAME</span>
+				<div class="conference-content">
+					<span class="conference-title">
+						Generative AI Modelling for Extreme Events (GAME) Workshop 2026 @ GAMEX; Bologna, Italy
+					</span>
+					<br />
+					Generative Modelling for Cascading Extremes via Autoregressive Transformer. (Invited Talk,
 				<a class="home" href="https://gamex-network.github.io/workshop/" target="_blank" rel="noopener" class="summary-link">
 					link</a>)
+				</div>
+				<time class="conference-year">2026</time>
 			</li>
-			<li>
-				<span>19th International Joint Conference CFE-CMStatistics 2025 @ European Research Consortium for Informatics and Mathematics Working Group (ERCIM WG); London, United Kingdom</span> - Bayesian Kolmogorov&ndash;Arnold Neural Model. (Invited Talk,
+
+			<li class="conference-row">
+				<span class="conference-badge", style="background: #ca0ca1;">CMStatistics</span>
+				<div class="conference-content">
+					<span class="conference-title">
+						19th International Joint Conference CFE-CMStatistics 2025 @ European Research Consortium for Informatics and Mathematics Working Group (ERCIM WG); London, UK
+					</span>
+					<br />
+					Bayesian Kolmogorov&ndash;Arnold Neural Model. (Invited Talk,
 				<a class="home" href="https://www.cmstatistics.org/CFECMStatistics2025/organized.php" target="_blank" rel="noopener" class="summary-link">
 					link</a>)
-			</li>
-			<li>
-				<span>Royal Statistical Society International Conference (RSS) 2025 @ Royal Statistical Society; Edinburgh, United Kingdom</span> - Bayesian Kolmogorov&ndash;Arnold Neural Model. (Contributed Talk,
+				</div>
+
+				<span class="conference-badge", style="background: #8F6F12;">RSS</span>
+				<div class="conference-content">
+					<span class="conference-title">
+						Royal Statistical Society International Conference (RSS) 2025 @ Royal Statistical Society; Edinburgh, UK
+					</span>
+					<br />
+					Bayesian Kolmogorov&ndash;Arnold Neural Model. (Contributed Talk,
 				<a class="home" href="https://virtual.oxfordabstracts.com/event/40660/program?program&date=%222025-9-3%22" target="_blank" rel="noopener" class="summary-link">
 					link</a>)
-			</li>
-			<li>
-				<!-- <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="display:inline-block;"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><rect width="16" height="16" x="4" y="4" stroke-dasharray="64" stroke-dashoffset="64" rx="1"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.5s" values="64;0"/></rect><path stroke-dasharray="6" stroke-dashoffset="6" d="M7 4V2M17 4V2"><animate fill="freeze" attributeName="stroke-dashoffset" begin="0.5s" dur="0.2s" values="6;0"/></path><path stroke-dasharray="12" stroke-dashoffset="12" d="M7 11H17"><animate fill="freeze" attributeName="stroke-dashoffset" begin="0.8s" dur="0.2s" values="12;0"/></path><path stroke-dasharray="9" stroke-dashoffset="9" d="M7 15H14"><animate fill="freeze" attributeName="stroke-dashoffset" begin="1s" dur="0.2s" values="9;0"/></path></g><rect width="14" height="0" x="5" y="5" fill="#f32853"><animate fill="freeze" attributeName="height" begin="0.5s" dur="0.2s" values="0;3"/></rect></svg> -->
-				<span>14th International Conference on Extreme Value Analysis (EVA) 2025 @ Extreme Value Analysis; Chapel Hill, North Carolina, United States</span> - BLAST: A Bayesian Lasso for Tail Index Regression Model with an Application to Extreme Wildfires in Portugal. (Contributed Talk,
+				</div>
+
+				<span class="conference-badge", style="background: #0cca9a;">EVA</span>
+				<div class="conference-content">
+					<span class="conference-title">
+						14th International Conference on Extreme Value Analysis (EVA) 2025 @ Extreme Value Analysis; Chapel Hill, North Carolina, US
+					</span>
+					<br />
+					BLAST: A Bayesian Lasso for Tail Index Regression Model with an Application to Extreme Wildfires in Portugal. (Contributed Talk,
 				<a class="home" href="https://rls.sites.oasis.unc.edu/EVA2025_Program_and_Book_of_Abstracts.pdf" target="_blank" rel="noopener" class="summary-link">
 					link</a>)
-			</li>
-			<li><span>Bayesian Young Statistican Meeting (BAYSM) 2025 @ junior-International Society for Bayesian Analysis (j-ISBA); Online</span> - Extended Tail Index Regression. (Contributed Talk,
+				</div>
+
+				<span class="conference-badge", style="background: #ca220c;">BASYM</span>
+				<div class="conference-content">
+					<span class="conference-title">
+						Bayesian Young Statistican Meeting (BAYSM) 2025 @ junior-International Society for Bayesian Analysis (j-ISBA); Online
+					</span>
+					<br />
+					Extended Tail Index Regression. (Contributed Talk,
 				<a class="home" href="https://baysm2025.github.io/" target="_blank" rel="noopener" class="summary-link">
 					link</a>)
+				</div>				
+				<time class="conference-year">2025</time>
 			</li>
-			<li><span>18th International Joint Conference CFE-CMStatistics 2024 @ European Research Consortium for Informatics and Mathematics Working Group (ERCIM WG); London, United Kingdom</span> - BLAST: A Bayesian Lasso for Tail Index Regression Model with an Application to Extreme Wildfires in Portugal. (Contributed Talk,
+
+			<li class="conference-row">
+				<span class="conference-badge", style="background: #ca0ca1;">CMStatistics</span>
+				<div class="conference-content">
+					<span class="conference-title">
+						18th International Joint Conference CFE-CMStatistics 2025 @ European Research Consortium for Informatics and Mathematics Working Group (ERCIM WG); London, UK
+					</span><br>BLAST: A Bayesian Lasso for Tail Index Regression Model with an Application to Extreme Wildfires in Portugal. (Contributed Talk,
 				<a class="home" href="https://www.cmstatistics.org/RegistrationsV2/CFECMStatistics2024/viewSubmission.php?in=1362&token=r88no01365r1829ss013s76551n1o3r8" target="_blank" rel="noopener" class="summary-link">
 					link</a>)
-			</li>
-			<li><span>The Past, Present and Future of Edinburgh Statistics, An RSS Pre-Conference 2024 @ Royal Statistical Society; Edinburgh, United Kingdom</span> - BLAST: A Bayesian Lasso for Tail Index Regression Model. (Invited Talk,
+				</div>
+
+				<span class="conference-badge", style="background: #8F6F12;">RSS</span>
+				<div class="conference-content">
+					<span class="conference-title">
+						The Past, Present and Future of Edinburgh Statistics, An RSS Pre-Conference 2024 @ Royal Statistical Society; Edinburgh, UK
+					</span><br>BLAST: A Bayesian Lasso for Tail Index Regression Model with an Application to Extreme Wildfires in Portugal. (Invited Talk,
 				<a class="home" href="https://rss.org.uk/training-events/events/events-2024/local-groups/the-past,-present-and-future-of-edinburgh-statisti/#fulleventinfo" target="_blank" rel="noopener" class="summary-link">
 					link</a>)
-			</li>
-			<li><span>World Meeting 2024 @ International Soceity for Bayesian Analysis (ISBA); Venice, Italy</span> - A Bayesian Lasso for Tail Index Regression. (Poster,
+				</div>
+
+				<span class="conference-badge", style="background: #ca220c;">ISBA</span>
+				<div class="conference-content">
+					<span class="conference-title">
+						World Meeting 2024 @ International Soceity for Bayesian Analysis (ISBA); Venice, Italy
+					</span>
+					<br />
+					A Bayesian Lasso for Tail Index Regression. (Poster,
 				<a class="home" href="https://docs.google.com/document/d/13zMesBSdZYMJpXf9qkW0_VC33LynmdpCwRBVCNnbG20/edit" target="_blank" rel="noopener" class="summary-link">
 					link</a>)
-				</li>
+				</div>		
+				<time class="conference-year">2024</time>
+			</li>
+
+
+			<li class="conference-row">
+				<span class="conference-badge", style="background: #ca220c;">ISBA</span>
+				<div class="conference-content">
+					<span class="conference-title">
+						Bayesian Young Statistican Meeting (BAYSM) 2023 @ junior-International Soceity for Bayesian Analysis (j-ISBA); Online
+					</span>
+					<br />
+					Bayesian Regularisation with Smoothing for Tail Index Regression. (Contributed Talk,
+			<a class="home" href="https://events.stat.uconn.edu/BAYSM2023/" target="_blank" rel="noopener" class="summary-link">
+				link</a>)
+				</div>		
+
+				<span class="conference-badge", style="background: #b40cca;">ISWM</span>
+				<div class="conference-content">
+					<span class="conference-title">
+						37th International Workshop for Statistical Modelling (IWSM) 2023 @ Statistical Modelling Society (SMS); Dortmund, Germany
+					</span>
+					<br />
+					Bayesian Regularisation for Tail Index Regression. (Poster,
+			<a class="home" href="https://iwsm2023.statistik.tu-dortmund.de/" target="_blank" rel="noopener" class="summary-link">
+				link</a>)
+				</div>						
+				<time class="conference-year">2023</time>
+			</li>			
 			<!-- <li><span>Annual Conference 2024 @ Centre for Statistics (CoS); Edinburgh, UK</span> - A Bayesian Lasso for Tail Index Regression. (Poster,
 				<a class="home" href="https://centreforstatistics.maths.ed.ac.uk/sites/default/files/atoms/files/ecr_day_2024_booklet.pdf" target="_blank" rel="noopener" class="summary-link">
 					link</a>)
@@ -68,14 +152,6 @@ import Container from "@src/components/Container.astro";
 			<a class="home" href="Papers\brstir\student_conference_11_and_12_jan_2024.pdf" target="_blank" rel="noopener" class="summary-link">
 				link</a>)
 			</li> -->
-			<li><span>Bayesian Young Statistican Meeting (BAYSM) 2023 @ junior-International Soceity for Bayesian Analysis (j-ISBA); Online</span> - Bayesian Regularisation with Smoothing for Tail Index Regression. (Contributed Talk,
-			<a class="home" href="https://events.stat.uconn.edu/BAYSM2023/" target="_blank" rel="noopener" class="summary-link">
-				link</a>)
-			</li>
-			<li><span>37th International Workshop for Statistical Modelling (IWSM) 2023 @ Statistical Modelling Society (SMS); Dortmund, Germany</span> - Bayesian Regularisation for Tail Index Regression. (Poster,
-			<a class="home" href="https://iwsm2023.statistik.tu-dortmund.de/" target="_blank" rel="noopener" class="summary-link">
-				link</a>)
-			</li>
 		</ul>		
 	</Container>
 </Layout>
@@ -88,4 +164,68 @@ import Container from "@src/components/Container.astro";
 	li{
 		@apply p-2;
 	}
+
+	.conference-row {
+		position: relative;
+		display: grid;
+		grid-template-columns: 7rem 1fr;
+		gap: 2rem;
+		padding: 1.75rem 0;
+		border-top: 1px solid rgba(0, 0, 0, 0.12);
+	}
+
+	.conference-row:first-child {
+		border-top: none;
+	}
+
+	.conference-badge {
+		width: fit-content;
+		height: fit-content;
+		margin-top: 0.25rem;
+		padding: 0.15rem 0.75rem;
+		border-radius: 2px;
+		background: #ca220c;
+		color: white;
+		font-size: 0.75rem;
+		font-weight: 700;
+		box-shadow: 0 2px 8px rgba(31, 111, 255, 0.35);
+	}
+
+	.conference-content {
+		padding-right: 6rem;
+		line-height: 1.55;
+	}
+
+	.conference-title {
+		font-weight: 700;
+	}
+
+	.conference-year {
+		position: absolute;
+		top: 1.6rem;
+		right: 0;
+		color: rgba(0, 0, 0, 0.11);
+		font-size: 2rem;
+		font-weight: 300;
+		line-height: 1;
+		pointer-events: none;
+	}
+
+	@media (max-width: 640px) {
+		.conference-row {
+			grid-template-columns: 1fr;
+			gap: 0.5rem;
+		}
+
+		.conference-content {
+			padding-right: 0;
+		}
+
+		.conference-year {
+			position: static;
+			font-size: 1.25rem;
+			margin-top: 0.25rem;
+		}
+	}
+
 </style>
