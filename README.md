@@ -1,57 +1,69 @@
 ### Features:
 
--   ✅ Tailwind CSS
--   ✅ Alpine js
--   ✅ Typescript
--   ✅ English and Korean Language Support
--   ✅ Localisation (with astro-i18n-aut)
--   ✅ Dark/light mode
--   ✅ Blog
--   ✅ Discussions (with Giscus)
--   ✅ CMS for editing blog post (with Sveltia CMS)
--   ✅ Sitemap (localised)
--   ✅ RSS (localised)
--   ✅ PWA
+* ✅ Astro 7
+* ✅ Tailwind CSS
+* ✅ Alpine.js
+* ✅ TypeScript
+* ✅ English and Korean language support
+* ✅ Localisation with Astro's native i18n routing
+* ✅ Dark/light mode
+* ✅ Blog using Astro Content Collections
+* ✅ Discussions with Giscus
+* ✅ CMS for editing blog posts with Sveltia CMS
+* ✅ Localised sitemap
+* ✅ Localised RSS feeds
+* ✅ Progressive Web App support
 
-### 🚀 Project Structure
+### Project Structure
 
-Inside of my Astro project, you'll see the following folders and files:
+Inside my Astro project, you will see the following folders and files:
 
-```
+```text
 ├── public/
 ├── src/
-│   ├── assets/
-│   ├── components/
-│   ├── content/
-│   ├── layouts/
-│   ├── locales/
-│   |   ├── en.json
-│   |   ├── kr.json
-│   |   └── locales.d.ts
-│   ├── pages/
-|   |   └── /...
-│   ├── styles/
-│   |   └── global.css
-│   ├── utils/
-│   |   ├── blog.ts
-│   |   ├── site.ts
-│   |   └── t.ts
-│   └── consts.ts/
+│   ├── assets/
+│   ├── components/
+│   ├── content/
+│   │   └── blog/
+│   ├── layouts/
+│   ├── locales/
+│   │   ├── en.json
+│   │   ├── kr.json
+│   │   └── locales.d.ts
+│   ├── pages/
+│   │   ├── kr/
+│   │   ├── 404.astro
+│   │   └── rss.xml.ts
+│   ├── styles/
+│   │   └── global.css
+│   ├── utils/
+│   │   ├── blog.ts
+│   │   ├── i18n.ts
+│   │   ├── site.ts
+│   │   └── t.ts
+│   ├── consts.ts
+│   └── content.config.ts
+├── .nvmrc
 ├── astro.config.mjs
-├── README.md
 ├── package.json
+├── postcss.config.cjs
+├── README.md
 ├── tailwind.config.cjs
 └── tsconfig.json
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+Astro looks for `.astro`, `.md`, and `.mdx` files in the `src/pages/` directory. Each page is exposed as a route based on its filename and directory structure.
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+English is the default language and uses unprefixed routes such as `/about/` and `/blog/`. Korean pages use the `/kr/` prefix, such as `/kr/about/` and `/kr/blog/`. Localisation is handled using Astro's native i18n routing together with the project-specific utilities in `src/utils/i18n.ts`.
 
-The `src/content/` directory contains "collections" of related Markdown and MDX documents. Use `getCollection()` to retrieve posts from `src/content/blog/`, and type-check your frontmatter using an optional schema. See [Astro's Content Collections docs](https://docs.astro.build/en/guides/content-collections/) to learn more.
+The `src/components/` directory contains reusable Astro components used throughout the website.
 
-Any static assets, like images, can be placed in the `public/` directory.
+The `src/content/` directory contains collections of related Markdown and MDX documents. Blog posts are stored in `src/content/blog/` and configured through `src/content.config.ts` using Astro's Content Layer API. The `getCollection()` and `render()` functions are used to retrieve and render blog posts.
 
-### 👀 Want to learn more about Astro?
+Static assets such as images, icons, generated PWA assets, and CMS configuration files can be placed in the `public/` directory.
 
-Check out [Astro documentation](https://docs.astro.build) or jump into Astro [Discord server](https://astro.build/chat).
+Tailwind CSS is processed through PostCSS using `postcss.config.cjs`, while site-wide styles are defined in `src/styles/global.css`.
+
+### Want to learn more about Astro?
+
+Check out the [Astro documentation](https://docs.astro.build) or join the [Astro Discord server](https://astro.build/chat).
