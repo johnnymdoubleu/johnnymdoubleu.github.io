@@ -1,39 +1,39 @@
 ---
-import { LOCALES, DEFAULT_LOCALE } from "@src/consts";
-import { getLocale, getUrlWithoutLocale } from "astro-i18n-aut";
+import { LOCALES } from "@src/consts";
+import { getLocale, getLocalizedPath, type Locale } from "@utils/i18n";
 
-const currentLocale = getLocale(Astro.url) ?? DEFAULT_LOCALE;
-const locales = Object.values(LOCALES);
-
-const urlWithoutLocalePrefix = getUrlWithoutLocale(Astro.url);
+const currentLocale = getLocale(Astro.url);
+const locales = Object.values(LOCALES) as Locale[];
 ---
 
 <script>
-	import { navigate } from "astro:transitions/client";
-	import alpine from "alpinejs";
+  import { navigate } from "astro:transitions/client";
+  import alpine from "alpinejs";
 
-	document.addEventListener("alpine:init", () => {
-		alpine.data("dropdownData", () => ({
-			currentLocale: "${currentLocale}",
-			changePage(event: any) {
-				const newLocaleUrl = event.target.value;
-				navigate(newLocaleUrl);
-			},
-		}));
-	});
+  document.addEventListener("alpine:init", () => {
+    alpine.data("dropdownData", () => ({
+      changePage(event: Event) {
+        const target = event.target;
+        if (target instanceof HTMLSelectElement) {
+          navigate(target.value);
+        }
+      },
+    }));
+  });
 </script>
 
 <select
-	aria-label="Change language"
-	id="changelanguage"
-	class="cursor-pointer bg-stone-50 p-0 text-stone-800 transition-all duration-300 focus-visible:outline-none dark:bg-stone-800 dark:text-stone-50"
-	x-data="dropdownData"
-	x-on:change="changePage($event)">
-	{
-		locales.map((locale) => (
-			<option value={`/${locale}${urlWithoutLocalePrefix}`} selected={locale === currentLocale}>
-				{locale}
-			</option>
-		))
-	}
+  aria-label="Change language"
+  id="changelanguage"
+  class="cursor-pointer bg-stone-50 p-0 text-stone-800 transition-all duration-300 focus-visible:outline-none dark:bg-stone-800 dark:text-stone-50"
+  x-data="dropdownData"
+  x-on:change="changePage($event)"
+>
+  {
+    locales.map((locale) => (
+      <option value={getLocalizedPath(Astro.url, locale)} selected={locale === currentLocale}>
+        {locale}
+      </option>
+    ))
+  }
 </select>

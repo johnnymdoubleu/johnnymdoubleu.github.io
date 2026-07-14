@@ -1,79 +1,80 @@
 {
-	"name": "johnniesmansion",
-	"type": "module",
-	"version": "2.0.4",
-	"author": "Johnny Myung Won Lee",
-	"description": "Johnny's Personal Website that includes portfolio",
-	"license": "MIT",
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/johnnymdoubleu/johnnymdoubleu.github.io.git"
-	},
-	"bugs": "https://github.com/johnnymdoubleu/johnnymdoubleu.github.io/issues",
-	"homepage": "https://johnnymdoubleu.github.io",
-	"files": [
-		"*"
-	],
-	"scripts": {
-		"dev": "astro dev",
-		"start": "astro dev",
-		"build": "astro check && npm run pwa:generate-assets && astro build",
-		"preview": "astro preview",
-		"astro": "astro",
-		"pwa:generate-assets": "pwa-assets-generator --preset minimal public/logo.svg"
-	},
-	"dependencies": {
-		"@astrojs/alpinejs": "^0.4.3",
-		"@astrojs/check": "^0.9.4",
-		"@astrojs/mdx": "4.3.14",
-		"@astrojs/partytown": "^2.1.3",
-		"@astrojs/rss": "^4.0.15",
-		"@astrojs/sitemap": "^3.2.1",
-		"@fontsource-variable/inter": "^5.0.18",
-		"@fontsource/raleway": "^5.0.19",
-		"@fontsource/twinkle-star": "^5.0.20",
-		"@fortawesome/fontawesome-svg-core": "^6.6.0",
-		"@fortawesome/free-solid-svg-icons": "^6.6.0",
-		"@iconify-json/mdi": "^1.1.67",
-		"@iconify/utils": "^2.1.25",
-		"@tabler/icons": "^3.11.0",
-		"@types/alpinejs": "^3.13.10",
-		"alpinejs": "^3.14.7",
-		"astro": "5.18.1",
-		"astro-i18n-aut": "^0.7.3",
-		"esbuild": "^0.28.1",
-		"locale-emoji": "^0.3.0",
-		"tailwindcss": "^3.4.4",
-		"typescript": "^5.5.3",
-		"workbox-window": "^7.1.0"
-	},
-	"devDependencies": {
-		"@astrojs/tailwind": "^6.0.2",
-		"@iconify-json/academicons": "^1.1.14",
-		"@iconify/tailwind": "^1.1.1",
-		"@vite-pwa/assets-generator": "^0.2.4",
-		"astro-icon": "^1.1.5",
-		"astro-seo": "1.1.0",
-		"prettier": "^3.3.2",
-		"prettier-plugin-astro": "^0.14.0",
-		"prettier-plugin-tailwindcss": "^0.6.5",
-		"sharp": "0.33.4"
-	},
-	"prettier": {
-		"tabWidth": 4,
-		"useTabs": true,
-		"bracketSameLine": true,
-		"printWidth": 150,
-		"htmlWhitespaceSensitivity": "ignore",
-		"plugins": [
-			"prettier-plugin-astro",
-			"prettier-plugin-tailwindcss"
-		]
-	},
-	"overrides": {
-		"sharp": "0.33.4",
-		"string-width": "4.1.0",
-		"strip-ansi": "5.2.0",
-		"astro-i18n-aut": {"astro": "$astro"}
-	}
+  "name": "johnniesmansion",
+  "type": "module",
+  "version": "2.0.4",
+  "author": "Johnny Myung Won Lee",
+  "description": "Johnny's Personal Website that includes portfolio",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/johnnymdoubleu/johnnymdoubleu.github.io.git"
+  },
+  "bugs": "https://github.com/johnnymdoubleu/johnnymdoubleu.github.io/issues",
+  "homepage": "https://johnnymdoubleu.github.io",
+  "files": [
+    "*"
+  ],
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro check && npm run pwa:generate-assets && astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "pwa:generate-assets": "pwa-assets-generator --preset minimal public/logo.svg"
+  },
+  "dependencies": {
+    "@astrojs/alpinejs": "^1.0.0",
+    "@astrojs/check": "^0.9.9",
+    "@astrojs/mdx": "7.0.3",
+    "@astrojs/partytown": "^2.1.7",
+    "@astrojs/rss": "^4.0.19",
+    "@astrojs/sitemap": "^3.7.3",
+    "@fontsource-variable/inter": "^5.0.18",
+    "@fontsource/raleway": "^5.0.19",
+    "@fontsource/twinkle-star": "^5.0.20",
+    "@fortawesome/fontawesome-svg-core": "^6.6.0",
+    "@fortawesome/free-solid-svg-icons": "^6.6.0",
+    "@iconify-json/mdi": "^1.1.67",
+    "@iconify/utils": "^2.1.25",
+    "@tabler/icons": "^3.11.0",
+    "alpinejs": "^3.14.7",
+    "astro": "7.0.9",
+    "esbuild": "^0.28.1",
+    "locale-emoji": "^0.3.0",
+    "tailwindcss": "^3.4.4",
+    "typescript": "^5.5.3",
+    "workbox-window": "^7.1.0"
+  },
+  "devDependencies": {
+    "@iconify-json/academicons": "^1.1.14",
+    "@iconify/tailwind": "^1.1.1",
+    "@vite-pwa/assets-generator": "^0.2.4",
+    "astro-icon": "^1.1.5",
+    "astro-seo": "1.1.0",
+    "autoprefixer": "^10.4.21",
+    "postcss": "^8.5.6",
+    "prettier": "^3.3.2",
+    "prettier-plugin-astro": "^0.14.0",
+    "prettier-plugin-tailwindcss": "^0.6.5",
+    "sharp": "0.33.4"
+  },
+  "prettier": {
+    "tabWidth": 4,
+    "useTabs": true,
+    "bracketSameLine": true,
+    "printWidth": 150,
+    "htmlWhitespaceSensitivity": "ignore",
+    "plugins": [
+      "prettier-plugin-astro",
+      "prettier-plugin-tailwindcss"
+    ]
+  },
+  "overrides": {
+    "sharp": "0.33.4",
+    "string-width": "4.1.0",
+    "strip-ansi": "5.2.0"
+  }
 }

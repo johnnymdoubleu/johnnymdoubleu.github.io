@@ -1,22 +1,25 @@
 ---
 import Layout from "@layouts/Layout.astro";
-import { getLocale, getLocaleUrlPrefix } from "astro-i18n-aut";
+import { getLocaleUrlPrefix } from "@utils/i18n";
 
 const localeUrlPrefix = getLocaleUrlPrefix(Astro.url);
+const homeUrl = localeUrlPrefix ? `${localeUrlPrefix}/` : "/";
 ---
 
 <Layout title="404 | Astro starter">
-	<section class="flex h-full items-center p-16">
-		<div class="container mx-auto my-8 flex flex-col items-center justify-center px-5">
-			<div class="max-w-md text-center">
-				<h2 class="mb-8 text-9xl font-bold">
-					<span class="sr-only">Error</span>
-					<span class="text-primary">404</span>
-				</h2>
-				<p class="text-3xl font-semibold md:text-3xl">Sorry, this page is currently not available.</p>
-				<p class="text-muted mb-8 mt-4 text-lg dark:text-slate-400">But don't worry, you can find plenty of other things on my webpage.</p>
-				<a rel="noopener noreferrer" href={localeUrlPrefix || "/"} class="btn ml-4">Back to home</a>
-			</div>
-		</div>
-	</section>
+  <section class="flex h-full items-center p-16">
+    <div class="container mx-auto my-8 flex flex-col items-center justify-center px-5">
+      <div class="max-w-md text-center">
+        <h2 class="mb-8 text-9xl font-bold">
+          <span class="sr-only">Error</span>
+          <span class="text-primary">404</span>
+        </h2>
+        <p class="text-3xl font-semibold md:text-3xl">Sorry, this page is currently not available.</p>
+        <p class="text-muted mb-8 mt-4 text-lg dark:text-slate-400">
+          But don't worry, you can find plenty of other things on my webpage.
+        </p>
+        <a rel="noopener noreferrer" href={homeUrl} class="btn ml-4">Back to home</a>
+      </div>
+    </div>
+  </section>
 </Layout>

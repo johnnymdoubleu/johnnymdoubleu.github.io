@@ -4,14 +4,13 @@ import BlogHeader from "@components/blog/BlogHeader.astro";
 import Container from "@components/Container.astro";
 import HeroImage from "@components/blog/HeroImage.astro";
 import { getCollection } from "astro:content";
-import { DEFAULT_LOCALE } from "@src/consts";
 
-const locale = DEFAULT_LOCALE;
+const locale = "kr";
 const posts = (await getCollection("blog", (entry) => entry.id.startsWith(`${locale}/`)))
   .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
   .map((post) => ({
     ...post,
-    href: `/blog/${post.id.slice(locale.length + 1)}/`,
+    href: `/kr/blog/${post.id.slice(locale.length + 1)}/`,
   }));
 ---
 

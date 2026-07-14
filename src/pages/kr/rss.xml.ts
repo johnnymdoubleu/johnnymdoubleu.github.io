@@ -1,10 +1,12 @@
 import type { APIRoute } from "astro";
 import rss from "@astrojs/rss";
 import { getCollection } from "astro:content";
-import { SITE_TITLE, SITE_DESCRIPTION, DEFAULT_LOCALE } from "../consts";
+import { SITE_TITLE, SITE_DESCRIPTION } from "../../consts";
+
+const locale = "kr";
 
 export const GET: APIRoute = async ({ site }) => {
-  const posts = await getCollection("blog", (entry) => entry.id.startsWith(`${DEFAULT_LOCALE}/`));
+  const posts = await getCollection("blog", (entry) => entry.id.startsWith(`${locale}/`));
 
   return rss({
     title: SITE_TITLE,
@@ -14,7 +16,7 @@ export const GET: APIRoute = async ({ site }) => {
       .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
       .map((post) => ({
         ...post.data,
-        link: `/blog/${post.id.slice(DEFAULT_LOCALE.length + 1)}/`,
+        link: `/${locale}/blog/${post.id.slice(locale.length + 1)}/`,
       })),
   });
 };

@@ -3,13 +3,13 @@ import type { GetStaticPaths } from "astro";
 import type { CollectionEntry } from "astro:content";
 import { getCollection, render } from "astro:content";
 import BlogItem from "@layouts/BlogItem.astro";
-import { DEFAULT_LOCALE } from "../../consts";
 
 export const getStaticPaths = (async () => {
-  const posts = await getCollection("blog", (entry) => entry.id.startsWith(`${DEFAULT_LOCALE}/`));
+  const locale = "kr";
+  const posts = await getCollection("blog", (entry) => entry.id.startsWith(`${locale}/`));
 
   return posts.map((post) => ({
-    params: { slug: post.id.slice(DEFAULT_LOCALE.length + 1) },
+    params: { slug: post.id.slice(locale.length + 1) },
     props: { post },
   }));
 }) satisfies GetStaticPaths;
