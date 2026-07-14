@@ -1,23 +1,57 @@
-# Astro 7 build fix
+### Features:
 
-Copy the `src` directory from this archive into the repository root, preserving paths.
+-   ✅ Tailwind CSS
+-   ✅ Alpine js
+-   ✅ Typescript
+-   ✅ English and Korean Language Support
+-   ✅ Localisation (with astro-i18n-aut)
+-   ✅ Dark/light mode
+-   ✅ Blog
+-   ✅ Discussions (with Giscus)
+-   ✅ CMS for editing blog post (with Sveltia CMS)
+-   ✅ Sitemap (localised)
+-   ✅ RSS (localised)
+-   ✅ PWA
 
-Then delete these obsolete Astro 5 files. They conflict with the new Content Layer and native i18n routes:
+### 🚀 Project Structure
 
-```powershell
-Remove-Item -LiteralPath "src/content/config.ts"
-Remove-Item -LiteralPath "src/pages/[locale]/rss.xml.ts"
+Inside of my Astro project, you'll see the following folders and files:
+
+```
+├── public/
+├── src/
+│   ├── assets/
+│   ├── components/
+│   ├── content/
+│   ├── layouts/
+│   ├── locales/
+│   |   ├── en.json
+│   |   ├── kr.json
+│   |   └── locales.d.ts
+│   ├── pages/
+|   |   └── /...
+│   ├── styles/
+│   |   └── global.css
+│   ├── utils/
+│   |   ├── blog.ts
+│   |   ├── site.ts
+│   |   └── t.ts
+│   └── consts.ts/
+├── astro.config.mjs
+├── README.md
+├── package.json
+├── tailwind.config.cjs
+└── tsconfig.json
 ```
 
-For Git Bash/macOS/Linux:
+Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
 
-```bash
-rm -f src/content/config.ts 'src/pages/[locale]/rss.xml.ts'
-```
+There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
 
-Clear generated Astro state and rebuild:
+The `src/content/` directory contains "collections" of related Markdown and MDX documents. Use `getCollection()` to retrieve posts from `src/content/blog/`, and type-check your frontmatter using an optional schema. See [Astro's Content Collections docs](https://docs.astro.build/en/guides/content-collections/) to learn more.
 
-```powershell
-Remove-Item -Recurse -Force .astro -ErrorAction SilentlyContinue
-npm run build
-```
+Any static assets, like images, can be placed in the `public/` directory.
+
+### 👀 Want to learn more about Astro?
+
+Check out [Astro documentation](https://docs.astro.build) or jump into Astro [Discord server](https://astro.build/chat).
