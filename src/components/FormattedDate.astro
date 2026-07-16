@@ -3,10 +3,11 @@ import { getLocale } from "@utils/i18n";
 
 interface Props {
   date: Date;
+  includeDay?: boolean;
   includeTime?: boolean;
 }
 
-const { date, includeTime = false } = Astro.props;
+const { date, includeDay=false, includeTime = false } = Astro.props;
 const locale = getLocale(Astro.url);
 const dateLocale = locale === "kr" ? "ko-KR" : "en-GB";
 ---
@@ -16,7 +17,7 @@ const dateLocale = locale === "kr" ? "ko-KR" : "en-GB";
     date.toLocaleDateString(dateLocale, {
       year: "numeric",
       month: "long",
-      day: "numeric",
+      day: includeDay ? "numeric" : undefined,
       hour: includeTime ? "numeric" : undefined,
       minute: includeTime ? "numeric" : undefined,
     })
