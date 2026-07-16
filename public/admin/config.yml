@@ -6,9 +6,9 @@ logo_url: /favicon.ico
 backend:
     name: github
     branch: main
-    repo: johnnymdoubleu/johnnymodubleu.github.io
-    site_domain: johnnymodubleu.github.io
-    base_url: https://johnnymodubleu.github.io
+    repo: johnnymdoubleu/johnnymdoubleu.github.io
+    site_domain: johnnymdoubleu.github.io
+    base_url: https://johnnymdoubleu.github.io
     auth_endpoint: oauth
     automatic_deployments: true
 
@@ -19,7 +19,6 @@ i18n:
     structure: "multiple_folders"
     locales:
         - "en"
-        - "it"
         - "kr"
     default_locale: "en"
 
