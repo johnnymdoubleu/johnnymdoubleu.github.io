@@ -7,9 +7,9 @@ backend:
     name: github
     branch: main
     repo: johnnymdoubleu/johnnymdoubleu.github.io
-    site_domain: johnnymdoubleu.github.io
-    base_url: https://johnnymdoubleu.github.io
-    auth_endpoint: oauth
+    # site_domain: johnnymdoubleu.github.io
+    # base_url: https://johnnymdoubleu.github.io
+    # auth_endpoint: oauth
     automatic_deployments: true
 
 media_folder: "src/assets/images"
