@@ -7,6 +7,7 @@ backend:
     name: github
     branch: main
     repo: johnnymdoubleu/johnnymdoubleu.github.io
+    auth_methods: [token]
     # site_domain: johnnymdoubleu.github.io
     # base_url: https://johnnymdoubleu.github.io
     # auth_endpoint: oauth
