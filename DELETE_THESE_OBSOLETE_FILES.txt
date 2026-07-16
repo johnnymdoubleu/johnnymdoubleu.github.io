@@ -1,2 +1,0 @@
-src/content/config.ts
-src/pages/[locale]/rss.xml.ts

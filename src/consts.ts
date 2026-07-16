@@ -7,7 +7,7 @@ export const SITE_TITLE: string = "Johnny Myung Won Lee";
 export const SITE_DESCRIPTION: string = "Welcome to Johnny's Mansion";
 
 // SEO metadata
-export const TWITTER_CREATOR: string = "@xxx";
+export const TWITTER_CREATOR: string = "@johnnymdoubleu";
 
 // Navigation
 type Page = {
