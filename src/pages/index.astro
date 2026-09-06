@@ -12,8 +12,9 @@ const newsItems = [
 	{
 		date: "8-11 September 2026",
 		title: "GAMEX — Edinburgh Summer School on Generative AI for Extremes",
+		url: "https://gamex-network.github.io/school/",
 		description:
-			'Join us in Edinburgh for the <a href="https://gamex-network.github.io/school/" class="text-blue-600 underline hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300">GAMEX Summer School</a>. I will be leading a session on "Neural Generative Models in Practice".',
+			'Join us in Edinburgh for the GAMEX Summer School. I will be leading a session on "Neural Generative Models in Practice".',
 		icon: "🎓"},
 	{
 		date: "July 2026",
@@ -63,7 +64,13 @@ const newsItems = [
 
 								<div>
 									<p class="mb-1 text-sm font-medium  tracking-wide text-stone-500 dark:text-stone-300"> {item.date} </p>
-									<h3 class="mb-2 font-semibold text-stone-800 dark:text-stone-50"> {item.title} </h3>
+									<h3 class="mb-2 font-semibold text-stone-800 dark:text-stone-50">
+										{item.url ? (
+											<a href={item.url} class="text-blue-600 underline hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300">
+												{item.title}
+											</a>
+										) : item.title}
+									</h3>
 									<p class="leading-relaxed text-stone-600 dark:text-stone-200" set:html={item.description}></p>
 								</div>
 							</div>
