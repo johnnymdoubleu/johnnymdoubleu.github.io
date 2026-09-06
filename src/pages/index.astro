@@ -11,7 +11,7 @@ const t = translations(Astro.url);
 const newsItems = [
 	{
 		date: "8-11 September 2026",
-		title: "GAMEX — Edinburgh Summer School on Generative AI for Extremes",
+		title: "GAMEX - Edinburgh Summer School on Generative AI for Extremes",
 		url: "https://gamex-network.github.io/school/",
 		description:
 			'Join us in Edinburgh for the GAMEX Summer School. I will be leading a session on "Neural Generative Models in Practice".',
@@ -65,11 +65,10 @@ const newsItems = [
 								<div>
 									<p class="mb-1 text-sm font-medium  tracking-wide text-stone-500 dark:text-stone-300"> {item.date} </p>
 									<h3 class="mb-2 font-semibold text-stone-800 dark:text-stone-50">
-										{item.url ? (
-											<a href={item.url} class="text-primary-1000 hover:underline">
-												{item.title}
-											</a>
-										) : item.title}
+										{item.title}
+										{item.url && (
+											<> (<a href={item.url} class="text-primary-1000 hover:underline">link</a>)</>
+										)}
 									</h3>
 									<p class="leading-relaxed text-stone-600 dark:text-stone-200" set:html={item.description}></p>
 								</div>
