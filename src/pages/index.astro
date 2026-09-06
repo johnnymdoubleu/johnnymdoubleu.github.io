@@ -50,7 +50,7 @@ const newsItems = [
 	<Container class="pt-5 lg:pt-1">
 		<section aria-labelledby="news-heading">
 			<div class="mb-5 flex items-center gap-3">
-				<h2 id="news-heading" class="text-xl font-semibold tracking-wide text-stone-800 dark:text-stone-100"> Latest News </h2>
+				<h2 id="news-heading" class="text-xl font-semibold tracking-wide text-stone-800 dark:text-stone-100" > Latest News </h2>
 				<div class="h-px flex-1 bg-stone-300 dark:bg-stone-600" aria-hidden="true" ></div>
 			</div>
 
@@ -66,7 +66,7 @@ const newsItems = [
 									<p class="mb-1 text-sm font-medium  tracking-wide text-stone-500 dark:text-stone-300"> {item.date} </p>
 									<h3 class="mb-2 font-semibold text-stone-800 dark:text-stone-50">
 										{item.url ? (
-											<a href={item.url}>
+											<a href={item.url} class="text-primary-1000 hover:underline">
 												{item.title}
 											</a>
 										) : item.title}
