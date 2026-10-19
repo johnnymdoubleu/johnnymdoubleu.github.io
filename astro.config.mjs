@@ -4,7 +4,9 @@ import icon from "astro-icon";
 import sitemap from "@astrojs/sitemap";
 import alpine from "@astrojs/alpinejs";
 import partytown from "@astrojs/partytown";
+import tailwindcss from '@tailwindcss/vite';
 import { DEFAULT_LOCALE, LOCALES, SITE_URL } from "./src/consts";
+
 
 const defaultLocale = DEFAULT_LOCALE;
 const locales = LOCALES;
@@ -29,6 +31,7 @@ export default defineConfig({
     define: {
       __DATE__: `'${new Date()}'`,
     },
+    plugins: [tailwindcss()],
   },
   integrations: [
     icon({

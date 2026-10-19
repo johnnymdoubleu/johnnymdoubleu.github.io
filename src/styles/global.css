@@ -3,9 +3,12 @@
  */
 
 /* The integration's default injected base.css file */
-@tailwind base;
+/* @tailwind base;
 @tailwind components;
-@tailwind utilities;
+@tailwind utilities; */
+@import "tailwindcss";
+@config "../../tailwind.config.cjs";
+
 
 * {
 	@apply box-border;

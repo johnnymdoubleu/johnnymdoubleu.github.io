@@ -41,9 +41,7 @@ module.exports = {
 			},
 		},
 	},
-	plugins: [
-		require.resolve("prettier-plugin-astro")
-	],
+	plugins: [],
 	overrides: [
 		{
 			files: "*.astro",

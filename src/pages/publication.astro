@@ -293,18 +293,62 @@ import Container from "@src/components/Container.astro";
 </Layout>
 
 <style>
-	div.box{
-		box-shadow: 0px 2px 10px 0.5px;
-	}
-	ul {
-		@apply list-none flex justify-around sm:inline-flex md:inline-block;
-	}
+  div.box {
+    box-shadow: 0px 2px 10px 0.5px;
+  }
 
-	ul li {
-		@apply mx-auto leading-5 border-0 text-xs font-bold px-2 h-9 content-center items-center text-center bg-secondary-1000 text-white md:inline-block md:mr-3 md:px-5 md:text-sm md:leading-7 hover:bg-yellow-600;
-		border-radius: 4px;
-	}
-	ul li span{
-		@apply hover:underline;
-	}
+  ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+  }
+
+  @media (min-width: 640px) {
+    ul {
+      display: inline-flex;
+    }
+  }
+
+  @media (min-width: 768px) {
+    ul {
+      display: inline-block;
+    }
+  }
+
+  ul li {
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.25rem;
+    border-width: 0;
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    height: 2.25rem;
+    align-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: var(--color-secondary-1000, #33658a);
+    color: #ffffff;
+    border-radius: 4px;
+
+    &:hover {
+      background-color: #ca8a04;
+    }
+  }
+
+  @media (min-width: 768px) {
+    ul li {
+      display: inline-block;
+      margin-right: 0.75rem;
+      padding-left: 1.25rem;
+      padding-right: 1.25rem;
+      font-size: 0.875rem;
+      line-height: 1.75rem;
+    }
+  }
+
+  ul li span:hover {
+    text-decoration: underline;
+  }
 </style>

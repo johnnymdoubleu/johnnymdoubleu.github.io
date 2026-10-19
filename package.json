@@ -41,6 +41,7 @@
     "@iconify/utils": "^3.1.4",
     "@tabler/icons": "^3.11.0",
     "@tailwindcss/postcss": "^4.3.3",
+    "@tailwindcss/vite": "^4.3.3",
     "alpinejs": "^3.14.7",
     "astro": "^7.3.2",
     "esbuild": "^0.28.1",
@@ -48,6 +49,7 @@
     "iconify": "^1.4.0",
     "locale-emoji": "^0.3.0",
     "typescript": "^5.5.3",
+    "vite": "^8.3.4",
     "workbox-window": "^7.1.0"
   },
   "devDependencies": {
@@ -57,7 +59,7 @@
     "astro-icon": "^1.1.5",
     "astro-seo": "1.1.0",
     "autoprefixer": "^10.4.21",
-    "postcss": "^8.5.25",
+    "postcss": "^8.5.31",
     "prettier": "^3.3.2",
     "prettier-plugin-astro": "^0.14.0",
     "prettier-plugin-tailwindcss": "^0.6.5",
