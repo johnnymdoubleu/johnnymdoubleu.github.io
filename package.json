@@ -80,7 +80,8 @@
   "overrides": {
     "sharp": "0.35.5",
     "string-width": "4.1.0",
-    "strip-ansi": "5.2.0"
+    "strip-ansi": "5.2.0",
+    "http-cache-semantics": "^4.2.1"
   },
   "allowScripts": {
     "esbuild@0.28.1": true,
