@@ -293,62 +293,40 @@ import Container from "@src/components/Container.astro";
 </Layout>
 
 <style>
+  @reference "../styles/global.css";
+
   div.box {
     box-shadow: 0px 2px 10px 0.5px;
   }
 
   ul {
-    list-style: none;
-    display: flex;
-    justify-content: space-around;
-  }
+    @apply list-none flex justify-around;
 
-  @media (min-width: 640px) {
-    ul {
-      display: inline-flex;
+    @media (min-width: 640px) {
+      @apply inline-flex;
     }
-  }
 
-  @media (min-width: 768px) {
-    ul {
-      display: inline-block;
+    @media (min-width: 768px) {
+      @apply inline-block;
     }
   }
 
   ul li {
-    margin-left: auto;
-    margin-right: auto;
-    line-height: 1.25rem;
-    border-width: 0;
-    font-size: 0.75rem;
-    font-weight: 700;
-    padding-left: 0.5rem;
-    padding-right: 0.5rem;
-    height: 2.25rem;
-    align-content: center;
-    align-items: center;
-    text-align: center;
-    background-color: var(--color-secondary-1000, #33658a);
-    color: #ffffff;
+    @apply mx-auto leading-5 border-0 text-xs font-bold px-2 h-9 content-center items-center text-center bg-secondary-1000 text-white;
     border-radius: 4px;
 
     &:hover {
-      background-color: #ca8a04;
+      @apply bg-yellow-600;
+    }
+
+    @media (min-width: 768px) {
+      @apply inline-block mr-3 px-5 text-sm leading-7;
     }
   }
 
-  @media (min-width: 768px) {
-    ul li {
-      display: inline-block;
-      margin-right: 0.75rem;
-      padding-left: 1.25rem;
-      padding-right: 1.25rem;
-      font-size: 0.875rem;
-      line-height: 1.75rem;
+  ul li span {
+    &:hover {
+      @apply underline;
     }
-  }
-
-  ul li span:hover {
-    text-decoration: underline;
   }
 </style>
