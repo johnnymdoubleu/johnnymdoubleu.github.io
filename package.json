@@ -43,7 +43,7 @@
     "@tailwindcss/postcss": "^4.3.3",
     "@tailwindcss/vite": "^4.3.3",
     "alpinejs": "^3.14.7",
-    "astro": "^7.3.2",
+    "astro": "^7.4.4",
     "esbuild": "^0.28.1",
     "fortawesome": "^0.0.1-security",
     "iconify": "^1.4.0",
