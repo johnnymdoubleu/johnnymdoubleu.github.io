@@ -138,26 +138,7 @@ const { buildDate } = Astro.props;
 			href="https://arxiv.org/search/?query=lee_m_4&amp;searchtype=author_id&amp;abstracts=show&amp;order=-announced_date_first&amp;size=50"
 			target="_blank" rel="noopener">
 			<span class="sr-only">Find me on arXiv</span>
-			<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="-1 -1 26 26" astro-icon="social/arxiv" aria-hidden="true" focusable="false">
-				<style>
-					@keyframes arxiv-footer-trace {
-						from { stroke-dashoffset: 61; }
-						to   { stroke-dashoffset: 0; }
-					}
-
-					@keyframes arxiv-footer-fill {
-						from { fill-opacity: 0; stroke-opacity: 1; }
-						to   { fill-opacity: 1; stroke-opacity: 0; }
-					}
-
-					@media (prefers-reduced-motion: no-preference) {
-						.arxiv-footer-ink {
-							animation: arxiv-footer-trace 1850ms cubic-bezier(.45, 0, .25, 1) both,
-												arxiv-footer-fill 1380ms 1630ms ease-out both;
-						}
-					}
-				</style>
-
+			<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="-4 -4 32 32" astro-icon="social/arxiv" aria-hidden="true" focusable="false">
 				<path class="arxiv-footer-ink" pathLength="100"
 							fill="currentColor" stroke="currentColor"
 							stroke-width=".48" stroke-opacity="0" stroke-dasharray="60 100"
@@ -181,7 +162,7 @@ const { buildDate } = Astro.props;
 								a.6494.6494 0 0 1-.4959.26.7516.7516 0 0 1-.706-.4669
 								c-.1119-.2682.0359-.6864.2442-.9083 l.0051-.0055.0047-.0055 z"/>
 			</svg>
-		</a>		
+		</a>
 		<!-- <a href="https://arxiv.org/search/?query=lee_m_4&searchtype=author_id&abstracts=show&order=-announced_date_first&size=50", class="footerIcon" target="_blank">
 			<span class="sr-only">Find me on ArXiv</span>
 			<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 384 512" astro-icon="social/arxiv">
