@@ -140,29 +140,21 @@ const { buildDate } = Astro.props;
 			target="_blank" rel="noopener">
 			<span class="sr-only">Find me on arXiv</span>
 
-			<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"
-					viewBox="-4 -4 32 32" astro-icon="social/arxiv"
-					aria-hidden="true" focusable="false">
+			<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="-4 -4 32 32" astro-icon="social/arxiv" aria-hidden="true" focusable="false">
 				<style>
 					@media (prefers-reduced-motion: reduce) {
 						.arxiv-footer-mark { mask: none; }
 					}
 				</style>
 
-				<mask id="arxivFooterDraw" maskUnits="userSpaceOnUse"
-							x="-4" y="-4" width="32" height="32">
+				<mask id="arxivFooterDraw" maskUnits="userSpaceOnUse" x="-4" y="-4" width="32" height="32">
 					<g fill="none" stroke="white" stroke-width="6" stroke-linecap="round"
 						stroke-linejoin="round" stroke-dasharray="40 40">
 						<path d="M1 -3 L14.2 12 L3 25">
-							<animate attributeName="stroke-dashoffset"
-											begin="0s;arxivFooterLink.mouseenter;arxivFooterLink.focusin"
-											values="40;0" dur="0.6s" fill="freeze"/>
+							<animate attributeName="stroke-dashoffset" begin="indefinite" values="40;0" dur="0.6s" fill="freeze"/>
 						</path>
-
 						<path d="M21 -1 L9.8 12 L23 27">
-							<animate attributeName="stroke-dashoffset"
-											begin="0s;arxivFooterLink.mouseenter;arxivFooterLink.focusin"
-											values="40;40;0" keyTimes="0;0.6;1" dur="1s" fill="freeze"/>
+							<animate attributeName="stroke-dashoffset" begin="indefinite" values="40;40;0" keyTimes="0;0.6;1" dur="1s" fill="freeze"/>
 						</path>
 					</g>
 				</mask>
