@@ -14,7 +14,7 @@ const { buildDate } = Astro.props;
 	<div class="mt-4 flex justify-center space-x-4">
 		<div id="map" class="hidden lg:flex justify-center">
 <script>
-  function loadRevolvermaps(theme) {
+  function loadRevolvermaps(theme: 'light' | 'dark') {
     // Clear any existing script/widget
     const container = document.getElementById('map');
     if (!container) {
@@ -159,7 +159,7 @@ const { buildDate } = Astro.props;
 					</g>
 				</mask>
 
-				<g class="arxiv-footer-mark" mask="url(#arxivFooterDraw)">
+				<g class="arxiv-footer-mark">
 					<path fill="currentColor"
 								d="M3.8423 0 a1.0037 1.0037 0 0 0-.922.6078 c-.1536.3687-.0438.6275.2938 1.1113
 									l6.9185 8.3597-1.0223 1.1058 a1.0393 1.0393 0 0 0 .003 1.4229

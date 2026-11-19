@@ -1,0 +1,453 @@
+---
+import newsEntries from '../data/news.json';
+
+interface Props {
+  headingId: string;
+}
+
+interface NewsEntry {
+  date: string;
+  sortDate?: string;
+  icon: string;
+  title: string;
+  description: string;
+  url?: string;
+}
+
+const { headingId } = Astro.props;
+const entries: NewsEntry[] = newsEntries;
+const months = [
+  'january', 'february', 'march', 'april', 'may', 'june',
+  'july', 'august', 'september', 'october', 'november', 'december',
+];
+const formatDate = new Intl.DateTimeFormat('en-GB', {
+  dateStyle: 'long',
+  timeZone: 'GMT',
+});
+
+function calendarDate(year: number, month: number, day: number) {
+  const date = new Date(0);
+  date.setUTCFullYear(year, month - 1, day);
+  if (date.getUTCFullYear() === year && date.getUTCMonth() === month - 1 && date.getUTCDate() === day) {
+    return date;
+  }
+}
+
+function parseNewsDate(label: string) {
+  const value = label.trim().toLowerCase();
+  const iso = /^(\d{4})-(\d{2})(?:-(\d{2}))?$/.exec(value);
+  if (iso) return calendarDate(Number(iso[1]), Number(iso[2]), Number(iso[3] ?? 1));
+
+  // Month-only dates use the first day. Event ranges use the opening day.
+  const written = /^(?:(\d{1,2})(?:st|nd|rd|th)?(?:\s*[-–—]\s*\d{1,2}(?:st|nd|rd|th)?)?\s+)?([a-z]+)\.?\s+(\d{4})$/.exec(value);
+  if (!written) return;
+
+  const [, day, monthName, year] = written;
+  const month = months.findIndex(name => monthName === name || monthName === name.slice(0, 3));
+  return calendarDate(Number(year), month + 1, Number(day ?? 1));
+}
+
+function linkHref(value: string | undefined) {
+  const href = value?.trim().replaceAll('&amp;', '&');
+  if (!href) return;
+
+  try {
+    const { protocol } = new URL(href, 'https://relative.invalid');
+    if (protocol === 'https:' || protocol === 'http:' || protocol === 'mailto:') return href;
+  } catch {
+    return;
+  }
+}
+
+function escapeMarkup(value: string) {
+  return value.replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;')
+    .replaceAll('"', '&quot;').replaceAll("'", '&#39;');
+}
+
+function renderDescription(value: string) {
+  const openTags: string[] = [];
+  let html = '';
+  let cursor = 0;
+
+  // Ordinary text is escaped. Only the inline tags below become markup.
+  for (const match of value.matchAll(/<\/?(?:a|b|strong|em|i)\b[^<>]*>/gi)) {
+    const [token] = match;
+    html += escapeMarkup(value.slice(cursor, match.index));
+    cursor = match.index + token.length;
+
+    const closing = /^<\/(a|b|strong|em|i)\s*>$/i.exec(token)?.[1]?.toLowerCase();
+    const format = /^<(b|strong|em|i)\s*>$/i.exec(token)?.[1]?.toLowerCase();
+    const anchor = /^<a\s+href\s*=\s*(?:"([^"]*)"|'([^']*)')\s*>$/i.exec(token);
+    const href = anchor ? linkHref(anchor[1] ?? anchor[2]) : undefined;
+
+    if (closing && closing === openTags.at(-1)) {
+      openTags.pop();
+      html += `</${closing}>`;
+    } else if (format) {
+      openTags.push(format);
+      html += `<${format}>`;
+    } else if (href && !openTags.includes('a')) {
+      openTags.push('a');
+      html += `<a class="home" href="${escapeMarkup(href)}">`;
+    } else {
+      html += escapeMarkup(token);
+    }
+  }
+
+  html += escapeMarkup(value.slice(cursor));
+  return html + openTags.reverse().map(tag => `</${tag}>`).join('');
+}
+
+const news = entries.map(entry => {
+  const date = entry.date.trim();
+  const calendar = parseNewsDate(date);
+  const sortCalendar = (entry.sortDate ? parseNewsDate(entry.sortDate) : undefined) ?? calendar;
+  const isoDay = /^\d{4}-\d{2}-\d{2}$/.test(date) && calendar;
+
+  return {
+    ...entry,
+    sortTime: sortCalendar?.getTime() ?? Number.MIN_SAFE_INTEGER,
+    dateLabel: isoDay ? formatDate.format(isoDay) : date,
+    dateTime: isoDay ? date : undefined,
+    descriptionHtml: renderDescription(entry.description),
+    url: linkHref(entry.url),
+  };
+}).sort((a, b) => b.sortTime - a.sortTime);
+---
+
+{news.length > 0 && (
+  <latest-news-carousel role="region" aria-labelledby={headingId}>
+    <div class="news-viewport" data-news-viewport>
+      <ul class="news-slides" role="list" data-news-track>
+        {news.map(({ dateLabel, dateTime, icon, title, descriptionHtml, url }) => (
+          <li class="news-slide" data-slide>
+            <article>
+              <div class="news-date">
+                <span aria-hidden="true">{icon}</span>
+                {dateTime ? <time datetime={dateTime}>{dateLabel}</time> : <span>{dateLabel}</span>}
+              </div>
+              <div class="news-headline">
+                <h3 data-title>{title}</h3>
+                {url && (
+                  <a class="home" href={url} aria-label={`Link for ${title}`}>[link]</a>
+                )}
+              </div>
+              <p set:html={descriptionHtml}></p>
+            </article>
+          </li>
+        ))}
+      </ul>
+    </div>
+
+    <input
+      class="progress"
+      type="range"
+      min="0"
+      max={news.length - 1}
+      step="1"
+      value="0"
+      aria-label="Browse announcements"
+      data-progress
+      hidden
+    />
+  </latest-news-carousel>
+)}
+
+<script>
+  const AUTO_ADVANCE_MS = 5000;
+  const SLIDE_TRANSITION_MS = 1250;
+  const TWO_CARD_MIN_WIDTH = 720;
+  const MAX_VISIBLE_CARDS = 2;
+
+  class LatestNewsCarousel extends HTMLElement {
+    private cleanup?: () => void;
+
+    connectedCallback() {
+      if (this.cleanup) return;
+
+      const viewport = this.querySelector<HTMLElement>('[data-news-viewport]');
+      const track = this.querySelector<HTMLElement>('[data-news-track]');
+      const slides = track ? [...track.querySelectorAll<HTMLElement>('[data-slide]')] : [];
+      const progress = this.querySelector<HTMLInputElement>('[data-progress]');
+      if (!viewport || !track || slides.length < 2 || !progress) return;
+
+      const controller = new AbortController();
+      const { signal } = controller;
+      const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+      let hovering = false;
+      let draggingProgress = false;
+      let active = 0;
+      let cardsPerView = 0;
+      let timer: number | undefined;
+      let wrapTimer: number | undefined;
+      let wrapping = false;
+
+      // Repeat a full window of cards so the last-to-first move has the same distance as other moves.
+      const copies = slides.slice(0, MAX_VISIBLE_CARDS).map(slide => {
+        const copy = slide.cloneNode(true) as HTMLElement;
+        copy.removeAttribute('data-slide');
+        return copy;
+      });
+      track.append(...copies);
+      const trackSlides = [...slides, ...copies];
+
+      const moveTrack = (position: number) => {
+        track.style.setProperty('--news-slide-offset', `${position * -100 / cardsPerView}%`);
+      };
+
+      const jumpTo = (position: number) => {
+        track.setAttribute('data-skip-transition', '');
+        moveTrack(position);
+        void track.offsetWidth;
+        track.removeAttribute('data-skip-transition');
+      };
+
+      const cancelWrap = () => {
+        wrapping = false;
+        window.clearTimeout(wrapTimer);
+      };
+
+      const finishWrap = () => {
+        if (!wrapping) return;
+        cancelWrap();
+        jumpTo(0);
+      };
+
+      const select = (index: number) => {
+        active = index;
+        trackSlides.forEach((slide, position) => {
+          slide.inert = position < active || position >= active + cardsPerView;
+        });
+        const title = slides[active]?.querySelector('[data-title]')?.textContent?.trim();
+        progress.value = String(active);
+        progress.setAttribute('aria-valuetext', `Announcement ${active + 1} of ${slides.length}. ${title ?? ''}`);
+      };
+
+      const show = (index: number, loop = false) => {
+        if (!slides[index] || index === active) return;
+
+        // A manual move during a loop retargets the animation from its current position.
+        cancelWrap();
+        select(index);
+        wrapping = loop && !reducedMotion.matches;
+        moveTrack(wrapping ? slides.length : active);
+        if (wrapping) wrapTimer = window.setTimeout(finishWrap, SLIDE_TRANSITION_MS + 100);
+      };
+
+      const canRotate = () => slides.length > cardsPerView;
+
+      const canAdvance = () => {
+        const focusInCard = viewport.contains(document.activeElement);
+        return canRotate() && !hovering && !draggingProgress && !document.hidden && !focusInCard
+          && !this.querySelector(':focus-visible');
+      };
+
+      const schedule = () => {
+        window.clearTimeout(timer);
+        if (signal.aborted || !canAdvance()) return;
+
+        timer = window.setTimeout(() => {
+          if (!canAdvance()) return;
+          const next = (active + 1) % slides.length;
+          show(next, next === 0);
+          schedule();
+        }, AUTO_ADVANCE_MS);
+      };
+
+      const updateLayout = (width: number) => {
+        const columns = width >= TWO_CARD_MIN_WIDTH ? MAX_VISIBLE_CARDS : 1;
+        if (columns === cardsPerView) return;
+
+        cancelWrap();
+        cardsPerView = columns;
+        this.setAttribute('data-columns', String(columns));
+        select(canRotate() ? active : 0);
+        jumpTo(active);
+        progress.hidden = !canRotate();
+        schedule();
+      };
+
+      track.addEventListener('transitionend', event => {
+        if (event.target === track && event.propertyName === 'transform') finishWrap();
+      }, { signal });
+      reducedMotion.addEventListener('change', ({ matches }) => {
+        if (matches) finishWrap();
+      }, { signal });
+
+      progress.addEventListener('input', () => {
+        show(progress.valueAsNumber);
+        schedule();
+      }, { signal });
+
+      progress.addEventListener('pointerdown', () => {
+        draggingProgress = true;
+        schedule();
+      }, { signal });
+
+      const finishDrag = () => {
+        if (!draggingProgress) return;
+        draggingProgress = false;
+        schedule();
+      };
+      window.addEventListener('pointerup', finishDrag, { signal });
+      window.addEventListener('pointercancel', finishDrag, { signal });
+      window.addEventListener('blur', finishDrag, { signal });
+
+      document.addEventListener('visibilitychange', schedule, { signal });
+
+      this.addEventListener('pointerenter', (event) => {
+        if (event.pointerType !== 'mouse') return;
+        hovering = true;
+        schedule();
+      }, { signal });
+
+      this.addEventListener('pointerleave', (event) => {
+        if (event.pointerType !== 'mouse') return;
+        hovering = false;
+        schedule();
+      }, { signal });
+
+      const onFocusChange = () => queueMicrotask(schedule);
+      this.addEventListener('focusin', onFocusChange, { signal });
+      this.addEventListener('focusout', onFocusChange, { signal });
+
+      track.style.setProperty('--news-slide-duration', `${SLIDE_TRANSITION_MS}ms`);
+      this.setAttribute('data-ready', '');
+      updateLayout(viewport.clientWidth);
+      const resize = new ResizeObserver(() => updateLayout(viewport.clientWidth));
+      resize.observe(viewport);
+
+      this.cleanup = () => {
+        controller.abort();
+        resize.disconnect();
+        window.clearTimeout(timer);
+        cancelWrap();
+        this.removeAttribute('data-ready');
+        this.removeAttribute('data-columns');
+        for (const copy of copies) copy.remove();
+        for (const slide of slides) slide.inert = false;
+        track.style.removeProperty('--news-slide-offset');
+        track.style.removeProperty('--news-slide-duration');
+        progress.hidden = true;
+      };
+    }
+
+    disconnectedCallback() {
+      this.cleanup?.();
+      this.cleanup = undefined;
+    }
+  }
+
+  if (!customElements.get('latest-news-carousel')) {
+    customElements.define('latest-news-carousel', LatestNewsCarousel);
+  }
+</script>
+
+<style>
+  latest-news-carousel {
+    display: block;
+    inline-size: 100%;
+    min-inline-size: 0;
+    grid-column: 1 / -1;
+  }
+
+  .news-slides {
+    min-inline-size: 0;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .news-slide {
+    min-inline-size: 0;
+    padding-block: 0.75rem;
+    overflow-wrap: anywhere;
+  }
+
+  [data-ready] .news-viewport {
+    overflow: hidden;
+    overflow: clip;
+  }
+
+  [data-ready] .news-slides {
+    display: flex;
+    transform: translate3d(var(--news-slide-offset, 0%), 0, 0);
+    transition: transform var(--news-slide-duration) cubic-bezier(0.45, 0, 0.55, 1);
+    will-change: transform;
+  }
+
+  [data-ready] .news-slide {
+    box-sizing: border-box;
+    flex: 0 0 100%;
+    padding-inline: 0.25rem;
+  }
+
+  [data-columns='2'] .news-slide {
+    flex-basis: 50%;
+    padding-inline: 0.75rem;
+  }
+
+  [data-ready] .news-slides[data-skip-transition] {
+    transition: none;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    [data-ready] .news-slides {
+      transition: none;
+    }
+  }
+
+  .news-date {
+    display: flex;
+    align-items: baseline;
+    gap: 0.45em;
+    font-size: 0.9em;
+  }
+
+  .news-headline {
+    margin: 0.25em 0;
+    font-size: 1.15em;
+  }
+
+  .news-headline h3 {
+    display: inline;
+    margin: 0;
+    font-size: inherit;
+    font-weight: 600;
+  }
+
+  .news-title-link {
+    margin-inline-start: 0.3em;
+    white-space: nowrap;
+  }
+
+  .news-slide p {
+    max-inline-size: 65ch;
+    margin: 0;
+  }
+
+  .news-slide p :global(b), .news-slide p :global(strong) {
+    font-weight: 700;
+  }
+
+  .progress {
+    display: block;
+    min-inline-size: 0;
+    inline-size: 100%;
+    min-block-size: 1.5rem;
+    margin: 0;
+    appearance: auto;
+    accent-color: currentColor;
+    cursor: ew-resize;
+    color: inherit;
+  }
+
+  .progress[hidden] {
+    display: none;
+  }
+
+  .progress:focus-visible {
+    outline: 2px solid currentColor;
+    outline-offset: 3px;
+  }
+</style>
